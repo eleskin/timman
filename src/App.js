@@ -1,6 +1,6 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Switch} from 'react-router-dom';
 import PrivateRoute from './auth/PrivateRoute';
 import PublicRoute from './auth/PublicRoute';

@@ -1,62 +1,44 @@
 import React from 'react';
 import styles from './Login.module.css';
-import {Button, Checkbox, Col, Form, Input, Row} from 'antd';
 import {Link} from 'react-router-dom';
+import {Button, Col, Container, Form, Row} from 'react-bootstrap';
 
 
 const Login = () => {
-  const onFinish = values => {
-    console.log('Success:', values);
-  };
-
-  const onFinishFailed = errorInfo => {
-    console.log('Failed:', errorInfo);
-  };
-
   return (
     <div className={styles.login}>
-      <Row>
-        <Col span={6} offset={9}><h2>Login</h2></Col>
-      </Row>
-      <Row>
-        <Col span={6} offset={9}>
-          <Form
-            name="login"
-            initialValues={{remember: true}}
-            onFinish={onFinish}
-            onFinishFailed={onFinishFailed}
-            className={styles.login__form}
-          >
-            <Form.Item
-              name="email"
-              rules={[{required: true, message: 'Please input your email!', type: 'email'}]}
-            >
-              <Input placeholder="Your email"/>
-            </Form.Item>
+      <Container fluid>
+        <Row className="justify-content-center">
+          <Col>
+            <h1>Sign in</h1>
+          </Col>
+        </Row>
+        <Row className="justify-content-center">
+          <Col md="3">
+            <Form className={styles.login__form}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control type="email" placeholder="Enter email"/>
+              </Form.Group>
 
-            <Form.Item
-              name="password"
-              rules={[{required: true, message: 'Please input your password!'}]}
-            >
-              <Input.Password placeholder="Your password"/>
-            </Form.Item>
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control type="password" placeholder="Enter Password"/>
+              </Form.Group>
 
-            <Form.Item name="remember" valuePropName="checked">
-              <Checkbox>Remember me</Checkbox>
-            </Form.Item>
+              <Form.Group controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Remember me" />
+              </Form.Group>
 
-            <Form.Item>
-              <Button type="primary" htmlType="submit" block>
+              <Button variant="primary" type="submit" block>
                 Sign in
               </Button>
-            </Form.Item>
 
-            <Form.Item>
-              <Link to="/register">Not a member? Sign up now</Link>
-            </Form.Item>
-          </Form>
-        </Col>
-      </Row>
+            </Form>
+            <div>Not a member? <Link to="/register">Sign up</Link></div>
+          </Col>
+        </Row>
+      </Container>
     </div>
   );
 };
