@@ -1,25 +1,26 @@
 import React from 'react';
 import 'antd/dist/antd.css';
 import './App.css';
-import logo from './logo.svg';
+import {BrowserRouter, Switch} from 'react-router-dom';
+import PrivateRoute from './auth/PrivateRoute';
+import Home from './views/Home/Home';
+import Login from './views/Login/Login';
+import Register from './views/Register/Register';
+import PublicRoute from './auth/PublicRoute';
+
+const auth = true;
 
 const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo"/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <Switch>
+          <PublicRoute auth={auth} exact path='/login' component={Login}/>
+          <PublicRoute auth={auth} exact path='/register' component={Register}/>
+
+          <PrivateRoute auth={auth} exact path='/' component={Home}/>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
