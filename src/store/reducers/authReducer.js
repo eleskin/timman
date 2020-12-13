@@ -2,7 +2,7 @@ const LOG_IN = 'LOG_IN';
 const LOG_OUT = 'LOG_OUT';
 
 const initialState = {
-  auth: false
+  auth: null
 };
 
 const authReducer = (state = initialState, action) => {

@@ -3,7 +3,6 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
-import store from './store/store';
 import PrivateRoute from './auth/PrivateRoute';
 import PublicRoute from './auth/PublicRoute';
 import Home from './views/Home/Home';
