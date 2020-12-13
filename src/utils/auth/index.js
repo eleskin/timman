@@ -1,29 +1,57 @@
 import axios from 'axios';
 
-export const authRegister = (data) => {
-  const register = async (data) => {
-    const [name, email, password] = data;
+const removeToken = () => {
+  localStorage.clear();
+};
 
-    const response = await axios.post('http://127.0.0.1:8000/api/auth/register', {
-      name, email, password
+const setToken = (token) => {
+  const {access_token, expires_at, token_type} = token;
+
+  removeToken();
+
+  localStorage.setItem('access_token', access_token);
+  localStorage.setItem('expires_at', expires_at);
+  localStorage.setItem('token_type', token_type);
+};
+
+const getToken = () => `${localStorage.getItem('token_type')} ${localStorage.getItem('access_token')}`;
+
+export const authenticate = () => {
+  return (async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/auth/user', {
+      headers: {
+        Authorization: getToken()
+      }
     });
 
-    return response.status === 201;
-  };
+    if (response.status === 200) {
+      console.log(response)
 
-  return register(data);
+      return true;
+    }
+
+    return false;
+  })();
+};
+
+
+export const authRegister = (data) => {
+  return (async (data) => {
+    const response = await axios.post('http://127.0.0.1:8000/api/auth/register', data);
+
+    return response.status === 201;
+  })(data);
 };
 
 export const authLogin = (data) => {
-  const login = async (data) => {
-    const [email, password] = data;
+  return (async (data) => {
+    const response = await axios.post('http://127.0.0.1:8000/api/auth/login', data);
 
-    const response = await axios.post('http://127.0.0.1:8000/api/auth/login', {
-      email, password
-    });
+    if (response.status === 200) {
+      setToken(response.data);
 
-    return response.status === 200;
-  };
-
-  return login(data);
+      return true;
+    }
+    return false;
+  })(data);
 };

@@ -9,10 +9,11 @@ import authActions from '../../store/actions/authActions';
 const Login = (props) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [remember_me, setRememberMe] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.login([email, password]);
+    props.login({email, password, remember_me});
   };
 
   return (
@@ -49,7 +50,12 @@ const Login = (props) => {
               </Form.Group>
 
               <Form.Group controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Remember me" />
+                <Form.Check
+                  type="checkbox"
+                  label="Remember me"
+                  checked={remember_me}
+                  onChange={() => setRememberMe(!remember_me)}
+                />
               </Form.Group>
 
               <Button variant="primary" type="submit" block>

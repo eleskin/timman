@@ -1,8 +1,8 @@
-import {authRegister, authLogin} from '../../utils/auth/';
+import {authRegister, authLogin, authenticate} from '../../utils/auth/';
 
 const authActions = {
-  authentificate: () => {
-    return {type: ' '}
+  authenticate: () => {
+    return authenticate().then(() => ({type: 'LOG_IN'})).catch(() => ({type: 'LOG_OUT'}));
   },
   register: (data) => {
     return authRegister(data).then(() => ({type: 'LOG_IN'})).catch(() => ({type: 'LOG_OUT'}));

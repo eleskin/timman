@@ -7,8 +7,7 @@ import {Provider} from 'react-redux';
 import store from './store/store';
 import authActions from './store/actions/authActions';
 
-// store.dispatch({type: 'LOG_IN'});
-store.dispatch(authActions.authentificate());
+authActions.authenticate().then(result => store.dispatch(result));
 
 ReactDOM.render(
   <React.StrictMode>

@@ -12,7 +12,7 @@ const Register = (props) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    props.register([name, email, password]);
+    props.register({name, email, password});
   };
 
   return (
