@@ -2,9 +2,19 @@ import React, {useState} from 'react';
 import styles from './Register.module.css';
 import {Link} from 'react-router-dom';
 import {Button, Col, Container, Form, Row} from 'react-bootstrap';
+import store from '../../store/store';
+import {connect} from 'react-redux';
+import authActions from '../../store/actions/authActions';
 
-const Register = () => {
-  // const [name, setName] = useState('gfsd');
+const Register = (props) => {
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    props.register([name, email, password]);
+  };
 
   return (
     <div className={styles.register}>
@@ -16,20 +26,38 @@ const Register = () => {
         </Row>
         <Row className="justify-content-center">
           <Col md="3">
-            <Form className={styles.register__form}>
-              <Form.Group controlId="formBasicEmail">
+            <Form className={styles.register__form} onSubmit={handleSubmit}>
+              <Form.Group controlId="formBasicName">
                 <Form.Label>Your name</Form.Label>
-                <Form.Control type="text" placeholder="Enter your name"/>
+                <Form.Control
+                  type="text"
+                  placeholder="Enter your name"
+                  required
+                  value={name}
+                  onChange={event => setName(event.target.value)}
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email"/>
+                <Form.Control
+                  type="email"
+                  placeholder="Enter email"
+                  required
+                  value={email}
+                  onChange={event => setEmail(event.target.value)}
+                />
               </Form.Group>
 
               <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Enter Password"/>
+                <Form.Control
+                  type="password"
+                  placeholder="Enter Password"
+                  required
+                  value={password}
+                  onChange={event => setPassword(event.target.value)}
+                />
               </Form.Group>
 
               <Button variant="primary" type="submit" block>
@@ -45,4 +73,9 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default connect(
+  null,
+  (dispatch) => ({
+    register: (data) => dispatch(authActions.register(data))
+  }))
+(Register);
