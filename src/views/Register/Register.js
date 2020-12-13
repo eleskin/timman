@@ -2,7 +2,6 @@ import React, {useState} from 'react';
 import styles from './Register.module.css';
 import {Link} from 'react-router-dom';
 import {Button, Col, Container, Form, Row} from 'react-bootstrap';
-import store from '../../store/store';
 import {connect} from 'react-redux';
 import authActions from '../../store/actions/authActions';
 
@@ -75,7 +74,7 @@ const Register = (props) => {
 
 export default connect(
   null,
-  (dispatch) => ({
-    register: (data) => dispatch(authActions.register(data))
+  dispatch => ({
+    register: data => authActions.register(data).then(result => dispatch(result))
   }))
 (Register);

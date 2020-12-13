@@ -5,14 +5,10 @@ const authActions = {
     return {type: ' '}
   },
   register: (data) => {
-    return authRegister(data).then(result => result).catch(result => result)
-      ? {type: 'LOG_IN'}
-      : {type: 'LOG_OUT'};
+    return authRegister(data).then(() => ({type: 'LOG_IN'})).catch(() => ({type: 'LOG_OUT'}));
   },
   login: (data) => {
-    return authLogin(data).then(result => result).catch(result => result)
-     ? {type: 'LOG_IN'}
-     : {type: 'LOG_OUT'};
+    return authLogin(data).then(() => ({type: 'LOG_IN'})).catch(() => ({type: 'LOG_OUT'}));
   }
 };
 

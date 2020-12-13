@@ -67,7 +67,7 @@ const Login = (props) => {
 
 export default connect(
   null,
-  (dispatch) => ({
-    login: (data) => dispatch(authActions.login(data))
+  dispatch => ({
+    login: data => authActions.login(data).then(result => dispatch(result))
   }))
 (Login);
