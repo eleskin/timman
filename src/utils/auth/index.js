@@ -4,7 +4,7 @@ const removeToken = () => {
   localStorage.clear();
 };
 
-const setToken = (token) => {
+const setToken = token => {
   const {access_token, expires_at, token_type} = token;
 
   removeToken();

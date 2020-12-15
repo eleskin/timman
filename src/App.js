@@ -9,6 +9,8 @@ import NullRoute from './auth/NullRoute';
 import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import Register from './views/Register/Register';
+import Sidebar from './components/Sidebar/Sidebar';
+import Documents from './views/Documents/Home';
 
 const App = (props) => {
   const {auth} = props;
@@ -16,13 +18,17 @@ const App = (props) => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Switch>
-          <PublicRoute auth={auth} exact path="/login" component={Login}/>
-          <PublicRoute auth={auth} exact path="/register" component={Register}/>
+        <div className="app__container">
+          <Sidebar auth={auth}/>
+          <Switch>
+            <PublicRoute auth={auth} exact path="/login" component={Login}/>
+            <PublicRoute auth={auth} exact path="/register" component={Register}/>
 
-          <PrivateRoute auth={auth} exact path="/" component={Home}/>
-          <NullRoute auth={auth}/>
-        </Switch>
+            <PrivateRoute auth={auth} exact path="/" component={Home}/>
+            <PrivateRoute auth={auth} exact path="/documents" component={Documents}/>
+            <NullRoute auth={auth}/>
+          </Switch>
+        </div>
       </BrowserRouter>
     </div>
   );
