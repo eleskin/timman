@@ -24,13 +24,8 @@ export const authenticate = () => {
       }
     });
 
-    if (response.status === 200) {
-      console.log(response)
+    return response.status === 200;
 
-      return true;
-    }
-
-    return false;
   })();
 };
 

@@ -42,7 +42,7 @@ const Login = (props) => {
                 <Form.Label>Password</Form.Label>
                 <Form.Control
                   type="password"
-                  placeholder="Enter Password"
+                  placeholder="Enter password"
                   required
                   value={password}
                   onChange={event => setPassword(event.target.value)}
