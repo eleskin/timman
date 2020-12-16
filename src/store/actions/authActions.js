@@ -1,4 +1,4 @@
-import {authRegister, authLogin, authenticate} from '../../utils/auth/';
+import {authRegister, authLogin, authenticate, authLogout} from '../../utils/auth/';
 
 const authActions = {
   authenticate: () => {
@@ -9,6 +9,9 @@ const authActions = {
   },
   login: (data) => {
     return authLogin(data).then(() => ({type: 'LOG_IN'})).catch(() => ({type: 'LOG_OUT'}));
+  },
+  logout: (data) => {
+    return authLogout(data).then(() => ({type: 'LOG_OUT'})).catch(() => ({type: 'LOG_IN'}));
   }
 };
 

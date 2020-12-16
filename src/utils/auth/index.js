@@ -29,7 +29,6 @@ export const authenticate = () => {
   })();
 };
 
-
 export const authRegister = (data) => {
   return (async (data) => {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/register', data);
@@ -49,4 +48,22 @@ export const authLogin = (data) => {
     }
     return false;
   })(data);
+};
+
+export const authLogout = () => {
+  return (async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/auth/logout', {
+      headers: {
+        Authorization: getToken()
+      }
+    });
+
+    console.log(response);
+
+    if (response.status === 200) {
+      removeToken(response.data);
+      return true;
+    }
+    return false;
+  })();
 };

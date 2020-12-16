@@ -12,6 +12,7 @@ const Sidebar = (props) => {
         <nav className={styles.sidebar__menu}>
           <Link to="/">Home</Link>
           <Link to="/documents">Documents</Link>
+          <Link to="/settings">Settings</Link>
         </nav>
       }
     </aside>

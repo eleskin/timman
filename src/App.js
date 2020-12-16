@@ -10,7 +10,8 @@ import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import Register from './views/Register/Register';
 import Sidebar from './components/Sidebar/Sidebar';
-import Documents from './views/Documents/Home';
+import Documents from './views/Documents/Documents';
+import Settings from './views/Settings/Settings';
 
 const App = (props) => {
   const {auth} = props;
@@ -26,6 +27,7 @@ const App = (props) => {
 
             <PrivateRoute auth={auth} exact path="/" component={Home}/>
             <PrivateRoute auth={auth} exact path="/documents" component={Documents}/>
+            <PrivateRoute auth={auth} exact path="/settings" component={Settings}/>
             <NullRoute auth={auth}/>
           </Switch>
         </div>
