@@ -58,10 +58,9 @@ export const authLogout = () => {
       }
     });
 
-    console.log(response);
-
     if (response.status === 200) {
       removeToken(response.data);
+
       return true;
     }
     return false;
