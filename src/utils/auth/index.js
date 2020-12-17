@@ -14,7 +14,9 @@ const setToken = token => {
   localStorage.setItem('token_type', token_type);
 };
 
-const getToken = () => `${localStorage.getItem('token_type')} ${localStorage.getItem('access_token')}`;
+export const getID = () => '';
+
+export const getToken = () => `${localStorage.getItem('token_type')} ${localStorage.getItem('access_token')}`;
 
 export const authenticate = () => {
   return (async () => {
@@ -29,7 +31,7 @@ export const authenticate = () => {
   })();
 };
 
-export const authRegister = (data) => {
+export const register = (data) => {
   return (async (data) => {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/register', data);
 
@@ -37,7 +39,7 @@ export const authRegister = (data) => {
   })(data);
 };
 
-export const authLogin = (data) => {
+export const login = (data) => {
   return (async (data) => {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/login', data);
 
@@ -50,7 +52,7 @@ export const authLogin = (data) => {
   })(data);
 };
 
-export const authLogout = () => {
+export const logout = () => {
   return (async () => {
     const response = await axios.get('http://127.0.0.1:8000/api/auth/logout', {
       headers: {

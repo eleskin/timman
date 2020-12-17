@@ -3,7 +3,7 @@ import styles from './Login.module.css';
 import {Link} from 'react-router-dom';
 import {Button, Col, Container, Form, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
-import authActions from '../../store/actions/authActions';
+import authActions from '../../utils/auth/authActions';
 
 
 const Login = (props) => {
@@ -75,5 +75,6 @@ export default connect(
   null,
   dispatch => ({
     login: data => authActions.login(data).then(result => dispatch(result))
-  }))
+  })
+)
 (Login);

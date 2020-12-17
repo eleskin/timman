@@ -1,7 +1,7 @@
 import React from 'react';
 import {Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
-import authActions from '../../store/actions/authActions';
+import authActions from '../../utils/auth/authActions';
 
 const Settings = (props) => {
   const handleLogout = (event) => {
