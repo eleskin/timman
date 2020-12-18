@@ -16,8 +16,10 @@ const Documents = (props) => {
     props.upload(file);
     setKey(Math.random());
   };
+  
+  const getFiles = props.getFiles;
 
-  useEffect(() => props.getFiles(), [props]);
+  useEffect(() => getFiles(), [getFiles]);
 
   const documentsList = props.documents.map(document => <li key={document.id}>{document.title}</li>);
 
