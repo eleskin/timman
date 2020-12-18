@@ -2,21 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/utils/documents/documentsActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/documents/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/actions/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/authActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/authReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/authReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/authActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/documents/documentsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/documents/documentsActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/documents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/documents/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Documents/Documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Documents/Documents.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Register/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Settings/Settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Settings/Settings.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +87,9 @@
       <workItem from="1608051186137" duration="3542000" />
       <workItem from="1608066004890" duration="8000" />
       <workItem from="1608123941968" duration="1124000" />
-      <workItem from="1608209240823" duration="7480000" />
+      <workItem from="1608209240823" duration="7788000" />
+      <workItem from="1608228299654" duration="24000" />
+      <workItem from="1608313069935" duration="3782000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -180,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608125063087</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="commit">
+      <created>1608227942461</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1608227942461</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

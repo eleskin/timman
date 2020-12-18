@@ -14,8 +14,6 @@ const setToken = token => {
   localStorage.setItem('token_type', token_type);
 };
 
-export const getID = () => '';
-
 export const getToken = () => `${localStorage.getItem('token_type')} ${localStorage.getItem('access_token')}`;
 
 export const authenticate = () => {
@@ -26,7 +24,7 @@ export const authenticate = () => {
       }
     });
 
-    return response.status === 200;
+    return response.status === 200 ? {id: response.data.id} : false;
 
   })();
 };
@@ -46,7 +44,7 @@ export const login = (data) => {
     if (response.status === 200) {
       setToken(response.data);
 
-      return true;
+      return  {id: response.data.id};
     }
     return false;
   })(data);
