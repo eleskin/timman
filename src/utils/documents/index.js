@@ -19,6 +19,19 @@ export const upload = (data) => {
       }
     });
 
-    return true;
+    return response.status === 201 ? {documents: [response.data.document]} : false;
   })(data);
+};
+
+export const getFiles = () => {
+  return (async () => {
+    const response = await axios.get('http://127.0.0.1:8000/api/documents/', {
+      headers: {
+        Authorization: getToken(),
+        user_id: store.getState().authReducer.id
+      }
+    });
+
+    return response.status === 200 ? {documents: [...response.data]} : false;
+  })();
 };
