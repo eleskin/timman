@@ -19,8 +19,6 @@ export const upload = (data) => {
       }
     });
 
-    console.log(response)
-
     return true;
   })(data);
 };

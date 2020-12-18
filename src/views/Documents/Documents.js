@@ -9,6 +9,7 @@ import store from '../../store/store';
 const Documents = (props) => {
   const [file, setFile] = useState(null);
   const [key, setKey] = useState(0);
+  const [documents, setDocuments] = useState([]);
 
   const changeFile = (event) => {
     setFile({file: event.target.files[0]});
@@ -21,15 +22,19 @@ const Documents = (props) => {
   };
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/documents/', {
-      headers: {
-        Authorization: getToken(),
-        user_id: store.getState().authReducer.id
-      }
-    }).then(response => console.log(response.data));
-  });
+    (async () => {
+      const response = await axios.get('http://127.0.0.1:8000/api/documents/', {
+        headers: {
+          Authorization: getToken(),
+          user_id: store.getState().authReducer.id
+        }
+      });
 
-  const documents = 1;
+      setDocuments(response.data);
+    })();
+  }, []);
+
+  const documentsList = documents.map(document => <li key={document.id}>{document.title}</li>);
 
   return (
     <div>
@@ -41,9 +46,7 @@ const Documents = (props) => {
           Submit
         </Button>
       </Form>
-      <div>
-
-      </div>
+      <ul>{documentsList}</ul>
     </div>
   );
 };
