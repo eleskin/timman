@@ -4,10 +4,13 @@ import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import axios from 'axios';
 import {getToken} from '../../utils/auth';
+import PdfViewer from '../../components/PdfViewer/PdfViewer';
 
 const Documents = (props) => {
   const [file, setFile] = useState(null);
   const [key, setKey] = useState(0);
+  const [pdfActive, setPdfActive] = useState(false);
+  const [documentUrl, setDocumentUrl] = useState(null);
 
   const changeFile = (event) => {
     setFile({file: event.target.files[0]});
@@ -19,7 +22,33 @@ const Documents = (props) => {
     setKey(Math.random());
   };
 
-  const handleDownload = (event, index) => {
+  const handleDownload = (event, documentUrl) => {
+    const link = document.createElement('a');
+    link.href = documentUrl;
+    link.setAttribute('download', 'file.pdf');
+    document.body.appendChild(link);
+    link.click();
+    setPdfActive(false);
+
+    // axios
+    //   .get(`http://127.0.0.1:8000/api/documents/${index}`, {
+    //     headers: {
+    //       Authorization: getToken()
+    //     },
+    //     responseType: 'blob'
+    //   })
+    //   .then(response => {
+    //     console.log(response)
+    //     const url = window.URL.createObjectURL(new Blob([response.data]));
+    //     const link = document.createElement('a');
+    //     link.href = url;
+    //     link.setAttribute('download', 'file.pdf'); //or any other extension
+    //     document.body.appendChild(link);
+    //     link.click();
+    //   });
+  };
+
+  const handleView = (event, index) => {
     axios
       .get(`http://127.0.0.1:8000/api/documents/${index}`, {
         headers: {
@@ -28,16 +57,17 @@ const Documents = (props) => {
         responseType: 'blob'
       })
       .then(response => {
-        console.log(response)
+        console.log(response);
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
         link.setAttribute('download', 'file.pdf'); //or any other extension
         document.body.appendChild(link);
-        link.click();
+        setDocumentUrl(url);
       });
+    setPdfActive(true);
   };
-  
+
   const getFiles = props.getFiles;
   useEffect(() => getFiles(), [getFiles]);
 
@@ -45,7 +75,7 @@ const Documents = (props) => {
     .map(document => (
       <li
         key={document.id}
-        onClick={event => handleDownload(event, document.id)}
+        onClick={event => handleView(event, document.id)}
       >
         {document.title}
       </li>
@@ -68,6 +98,15 @@ const Documents = (props) => {
         </Button>
       </Form>
       <ul>{documentsList}</ul>
+      {
+        pdfActive
+        &&
+        <PdfViewer
+          document={documentUrl}
+          handleClose={() => {setPdfActive(false); setDocumentUrl(null)}}
+          handleDownload={event => handleDownload(event, documentUrl)}
+        />
+      }
     </div>
   );
 };
