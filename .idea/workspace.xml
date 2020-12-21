@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/components/PdfViewer/PdfViewer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/PdfViewer/PdfViewer.module.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/PdfViewer/PdfViewer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/PdfViewer/PdfViewer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Documents/Documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Documents/Documents.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +49,7 @@
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\views\Register" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\components\PdfViewer" />
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\utils\auth" />
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\components\Sidebar" />
     </key>
