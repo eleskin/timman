@@ -35,3 +35,17 @@ export const getFiles = () => {
     return response.status === 200 ? {documents: [...response.data]} : false;
   })();
 };
+
+export const download = (index) => {
+  return (async (index) => {
+    const response = await axios
+      .get(`http://127.0.0.1:8000/api/documents/${index}`, {
+        headers: {
+          Authorization: getToken()
+        },
+        responseType: 'blob'
+      })
+
+    return response.status === 200 ? response : false;
+  })(index);
+};

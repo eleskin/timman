@@ -2,8 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import axios from 'axios';
-import {getToken} from '../../utils/auth';
 
 const Documents = (props) => {
   const [file, setFile] = useState(null);
@@ -20,22 +18,7 @@ const Documents = (props) => {
   };
 
   const handleDownload = (event, index) => {
-    axios
-      .get(`http://127.0.0.1:8000/api/documents/${index}`, {
-        headers: {
-          Authorization: getToken()
-        },
-        responseType: 'blob'
-      })
-      .then(response => {
-        console.log(response)
-        const url = window.URL.createObjectURL(new Blob([response.data]));
-        const link = document.createElement('a');
-        link.href = url;
-        link.setAttribute('download', 'file.pdf'); //or any other extension
-        document.body.appendChild(link);
-        link.click();
-      });
+    props.download(index);
   };
 
   const getFiles = props.getFiles;
@@ -80,7 +63,8 @@ export default connect(
   },
   dispatch => ({
     upload: data => documentsActions.upload(data).then(result => dispatch(result)),
-    getFiles: () => documentsActions.getFiles().then(result => dispatch(result))
+    getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
+    download: index => documentsActions.download(index).then(result => dispatch(result))
   })
 )
 (Documents);
