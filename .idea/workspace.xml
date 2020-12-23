@@ -5,6 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Documents/Documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Documents/Documents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Documents/Documents.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Documents/Documents.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,7 +90,7 @@
       <workItem from="1608388291249" duration="5140000" />
       <workItem from="1608398965178" duration="8000" />
       <workItem from="1608473378972" duration="3734000" />
-      <workItem from="1608749768820" duration="6104000" />
+      <workItem from="1608749768820" duration="7707000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -238,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608753587917</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="commit">
+      <created>1608756113304</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1608756113304</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

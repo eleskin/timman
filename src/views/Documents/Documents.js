@@ -2,6 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Card, Col, Container, Form, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
+import styles from './Documents.module.css';
 
 const Documents = (props) => {
   const [file, setFile] = useState(null);
@@ -57,13 +58,17 @@ const Documents = (props) => {
       <Container fluid>
         <Form encType="multipart/form-data">
           <Form.Group>
-            <Form.File
-              id="exampleFormControlFile1"
-              onChange={handleUploadFile}
-              key={key}
-              required
-              accept="application/pdf"
-            />
+            <label className={styles.form__upload}>
+              <span>+</span>
+              <Form.File
+                className={styles.form__input_upload}
+                id="exampleFormControlFile1"
+                onChange={handleUploadFile}
+                key={key}
+                required
+                accept="application/pdf"
+              />
+            </label>
           </Form.Group>
         </Form>
         <Row>{documentsList}</Row>
