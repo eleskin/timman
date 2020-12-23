@@ -1,4 +1,4 @@
-import {upload, getFiles, download} from './index';
+import {upload, getFiles, download, remove} from './index';
 
 const documentsActions = {
   upload: (data) => {
@@ -20,6 +20,9 @@ const documentsActions = {
         return {type: ''};
       })
       .catch(() => ({type: ''}));
+  },
+  remove: (index) => {
+    return remove(index).then(({index}) => ({type: 'REMOVE_FILE', index: index})).catch(() => ({type: ''}));
   }
 };
 

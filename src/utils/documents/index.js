@@ -44,8 +44,21 @@ export const download = (index) => {
           Authorization: getToken()
         },
         responseType: 'blob'
-      })
+      });
 
     return response.status === 200 ? response : false;
+  })(index);
+};
+
+export const remove = (index) => {
+  return (async (index) => {
+    const response = await axios
+      .delete(`http://127.0.0.1:8000/api/documents/${index}`, {
+        headers: {
+          Authorization: getToken()
+        }
+      });
+
+    return response.status === 200 ? {index: Number(response.data)} : false;
   })(index);
 };
