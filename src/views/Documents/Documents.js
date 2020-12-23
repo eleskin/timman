@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {Button, Card, Col, Container, Form, Row} from 'react-bootstrap';
+import {Card, Col, Container, Form, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 
@@ -7,28 +7,15 @@ const Documents = (props) => {
   const [file, setFile] = useState(null);
   const [key, setKey] = useState(0);
 
-  const changeFile = async (event) => {
-    setFile({file: event.target.files[0]});
-    // console.log(file);
-    // props.upload(file);
-    // setKey(Math.random());
-  };
+  const handleUploadFile = (event) => setFile({file: event.target.files[0]});
 
-  // const changeFile = new Promise((resolve, reject) => {
-  //   setFile({file: event.target.files[0]});
-  // });
-
-  // const changeFile = event => new Promise((resolve, reject) => {
-  //   setFile({file: event.target.files[0]});
-  //   resolve("Stuff worked!");
-  // });
-
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    props.upload(file);
-    setKey(Math.random());
-  };
+  useEffect(() => {
+    if (file) {
+      props.upload(file);
+      setKey(Math.random());
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [file]);
 
   const handleDownload = (event, index) => {
     event.preventDefault();
@@ -68,19 +55,16 @@ const Documents = (props) => {
   return (
     <div>
       <Container fluid>
-        <Form onSubmit={handleSubmit} encType="multipart/form-data">
+        <Form encType="multipart/form-data">
           <Form.Group>
             <Form.File
               id="exampleFormControlFile1"
-              onChange={changeFile}
+              onChange={handleUploadFile}
               key={key}
               required
               accept="application/pdf"
             />
           </Form.Group>
-          <Button variant="primary" type="submit" block>
-            Submit
-          </Button>
         </Form>
         <Row>{documentsList}</Row>
       </Container>
