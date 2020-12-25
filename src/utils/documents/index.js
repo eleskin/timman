@@ -32,6 +32,11 @@ export const getFiles = () => {
       }
     });
 
+    response.data.forEach(item => {
+      const title = item.title.split('/');
+      item.title = title[title.length - 1];
+    });
+
     return response.status === 200 ? {documents: [...response.data]} : false;
   })();
 };

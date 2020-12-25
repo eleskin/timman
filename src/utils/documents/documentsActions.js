@@ -10,10 +10,13 @@ const documentsActions = {
   download: (index) => {
     return download(index)
       .then(response => {
+        const fileTypeArray = response.data.type.split('/');
+        const extension = fileTypeArray[fileTypeArray.length - 1];
+
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', 'file.pdf'); //or any other extension
+        link.setAttribute('download', `file.${extension}`);
         document.body.appendChild(link);
         link.click();
 

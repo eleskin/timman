@@ -60,7 +60,7 @@ const Documents = (props) => {
             <div className={styles.form__upload}>
               <div className={styles.form__upload_label} {...getRootProps()}>
                 <input {...getInputProps()} multiple={false}/>
-                <p>Drag 'n' drop some files here, or click to select files (Only PDF)</p>
+                <p>Drag 'n' drop some files here, or click to select files</p>
               </div>
             </div>
           )}
