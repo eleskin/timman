@@ -1,19 +1,18 @@
 import React, {useEffect, useState} from 'react';
-import {Card, Col, Container, Form, Row} from 'react-bootstrap';
+import {Card, Col, Container, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import styles from './Documents.module.css';
+import Dropzone from 'react-dropzone';
 
 const Documents = (props) => {
   const [file, setFile] = useState(null);
-  const [key, setKey] = useState(0);
 
-  const handleUploadFile = (event) => setFile({file: event.target.files[0]});
+  const handleUploadFile = acceptedFiles => setFile({file: acceptedFiles[0]});
 
   useEffect(() => {
     if (file) {
       props.upload(file);
-      setKey(Math.random());
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
@@ -56,21 +55,16 @@ const Documents = (props) => {
   return (
     <div>
       <Container fluid>
-        <Form encType="multipart/form-data">
-          <Form.Group>
-            <label className={styles.form__upload}>
-              <span>+</span>
-              <Form.File
-                className={styles.form__input_upload}
-                id="exampleFormControlFile1"
-                onChange={handleUploadFile}
-                key={key}
-                required
-                accept="application/pdf"
-              />
-            </label>
-          </Form.Group>
-        </Form>
+        <Dropzone onDrop={acceptedFiles => handleUploadFile(acceptedFiles)}>
+          {({getRootProps, getInputProps}) => (
+            <div className={styles.form__upload}>
+              <div className={styles.form__upload_label} {...getRootProps()}>
+                <input {...getInputProps()} multiple={false}/>
+                <p>Drag 'n' drop some files here, or click to select files (Only PDF)</p>
+              </div>
+            </div>
+          )}
+        </Dropzone>
         <Row>{documentsList}</Row>
       </Container>
     </div>
