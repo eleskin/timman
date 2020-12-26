@@ -5,7 +5,7 @@ const PublicRoute = ({component: Component, auth, ...rest}) => {
   if (auth === null) return null;
   return !auth
     ? <Component {...rest}/>
-    : <Redirect to={{pathname: '/', state: {from: rest.location.pathname}}}/>;
+    : <Redirect to={{pathname: '/home', state: {from: rest.location.pathname}}}/>;
 };
 
 export default PublicRoute;

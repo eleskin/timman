@@ -3,21 +3,26 @@
   background-color: #f5f5f5;
 }
 
-.sidebar__logo {
-  font-size: 26px;
+.sidebar__logo > a {
+  font-size: 24px;
+  color: #ffffff;
   font-weight: bold;
-  color: #000000;
-  text-decoration: none;
+  transition: 0.2s;
+  margin: 0.5rem auto;
+  display: block;
 }
 
-.sidebar__logo:hover {
-  color: #000000;
-  text-decoration: none;
+.sidebar__logo > a:hover {
+  color: #ffffff;
 }
 
-.sidebar__menu {
+.sidebar__logo__collapsed_true > a {
+  font-size: 16px;
+  transition: 0.2s;
+}
+
+.sidebar__link {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  margin-top: 60px;
 }

@@ -4,15 +4,17 @@ import {Link} from 'react-router-dom';
 import {Button, Col, Container, Form, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import authActions from '../../utils/auth/authActions';
+import documentsActions from '../../utils/documents/documentsActions';
 
-const Register = (props) => {
+const Register = props => {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async event => {
     event.preventDefault();
-    props.register({name, email, password});
+    await props.register({name, email, password});
+    await props.getFiles();
   };
 
   return (
@@ -73,9 +75,14 @@ const Register = (props) => {
 };
 
 export default connect(
-  null,
+  state => {
+    const {documents} = state.documentsReducer;
+
+    return {documents};
+  },
   dispatch => ({
-    register: data => authActions.register(data).then(result => dispatch(result))
+    register: data => authActions.register(data).then(result => dispatch(result)),
+    getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
   })
 )
 (Register);

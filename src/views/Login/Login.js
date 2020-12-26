@@ -73,7 +73,7 @@ const Login = props => {
 };
 
 export default connect(
-  (state) => {
+  state => {
     const {documents} = state.documentsReducer;
 
     return {documents};
