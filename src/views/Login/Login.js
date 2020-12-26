@@ -1,73 +1,74 @@
-import React, {useState} from 'react';
+import React from 'react';
 import styles from './Login.module.css';
 import {Link} from 'react-router-dom';
-import {Button, Col, Container, Form, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import authActions from '../../utils/auth/authActions';
 import documentsActions from '../../utils/documents/documentsActions';
+import {Button, Checkbox, Col, Form, Input, Row, Typography} from 'antd';
+import {LockOutlined, UserOutlined} from '@ant-design/icons';
+
+const {Title} = Typography;
 
 const Login = props => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [remember_me, setRememberMe] = useState(false);
-
-  const handleSubmit = async event => {
-    event.preventDefault();
-    await props.login({email, password, remember_me});
+  const onFinish = async values => {
+    await props.login(values);
     await props.getFiles();
   };
 
   return (
     <div className={styles.login}>
-      <Container fluid>
-        <Row className="justify-content-center">
-          <Col>
-            <h1>Sign in</h1>
+      <div className={styles.login__wrapper}>
+        <Row>
+          <Col span={6} offset={9}>
+            <Title level={3}>Sign in</Title>
           </Col>
         </Row>
-        <Row className="justify-content-center">
-          <Col md="3">
-            <Form className={styles.login__form} onSubmit={handleSubmit}>
-              <Form.Group controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
+        <Row>
+          <Col span={6} offset={9}>
+            <Form
+              name="normal_login"
+              className="login-form"
+              initialValues={{remember: true}}
+              onFinish={onFinish}
+            >
+              <Form.Item name="email">
+                <Input
+                  prefix={<UserOutlined className="site-form-item-icon"/>}
                   type="email"
-                  placeholder="Enter email"
+                  placeholder="Email"
                   required
-                  value={email}
-                  onChange={event => setEmail(event.target.value)}
                 />
-              </Form.Group>
-
-              <Form.Group controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
-                <Form.Control
+              </Form.Item>
+              <Form.Item name="password">
+                <Input
+                  prefix={<LockOutlined className="site-form-item-icon"/>}
                   type="password"
-                  placeholder="Enter password"
+                  placeholder="Password"
                   required
-                  value={password}
-                  onChange={event => setPassword(event.target.value)}
                 />
-              </Form.Group>
+              </Form.Item>
+              <Form.Item>
+                <Row flex="true" justify="space-between">
+                  <Form.Item name="remember_me" valuePropName="checked" noStyle>
+                    <Checkbox>Remember me</Checkbox>
+                  </Form.Item>
 
-              <Form.Group controlId="formBasicCheckbox">
-                <Form.Check
-                  type="checkbox"
-                  label="Remember me"
-                  checked={remember_me}
-                  onChange={() => setRememberMe(!remember_me)}
-                />
-              </Form.Group>
+                  <Link className="login-form-forgot" to="">
+                    Forgot password
+                  </Link>
+                </Row>
+              </Form.Item>
 
-              <Button variant="primary" type="submit" block>
-                Sign in
-              </Button>
-
+              <Form.Item>
+                <Button type="primary" htmlType="submit" className="login-form-button" block>
+                  Log in
+                </Button>
+                Or <Link to="/register">register now!</Link>
+              </Form.Item>
             </Form>
-            <div>Not a member? <Link to="/register">Sign up</Link></div>
           </Col>
         </Row>
-      </Container>
+      </div>
     </div>
   );
 };

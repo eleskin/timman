@@ -33,7 +33,12 @@ export const register = (data) => {
   return (async (data) => {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/register', data);
 
-    return response.status === 201;
+    if (response.status === 200) {
+      setToken(response.data);
+
+      return  {id: response.data.id};
+    }
+    return false;
   })(data);
 };
 

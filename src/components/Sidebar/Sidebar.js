@@ -15,20 +15,7 @@ const Sidebar = props => {
     setCollapsed(collapsed);
   };
 
-  console.log(location.pathname);
   return (
-    // <aside className={styles.sidebar}>
-    //   <Link to="/" className={styles.sidebar__logo}>TimMan</Link>
-    //   {
-    //     props.auth
-    //     &&
-    //     <nav className={styles.sidebar__menu}>
-    //       <Link to="/">Home</Link>
-    //       <Link to="/documents">Documents</Link>
-    //       <Link to="/settings">Settings</Link>
-    //     </nav>
-    //   }
-    // </aside>
     <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
       <div className={`${styles.sidebar__logo} ${collapsed && styles.sidebar__logo__collapsed_true}`}>
         <Link to="/home">Timman</Link>

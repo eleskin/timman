@@ -3,17 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="commit">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/NullRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/NullRoute.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/auth/PublicRoute.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/auth/PublicRoute.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.module.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,7 +103,7 @@
       <workItem from="1608822993858" duration="274000" />
       <workItem from="1608921337480" duration="1898000" />
       <workItem from="1608929768411" duration="3318000" />
-      <workItem from="1608982245476" duration="9091000" />
+      <workItem from="1608982245476" duration="12940000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -288,7 +287,14 @@
       <option name="project" value="LOCAL" />
       <updated>1608996956692</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="commit">
+      <created>1609008673524</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1609008673524</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
