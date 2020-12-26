@@ -1,11 +1,11 @@
-import {upload, getFiles, download, remove} from './index';
+import {upload, getFiles, download, remove, clear} from './index';
 
 const documentsActions = {
   upload: (data) => {
-    return upload(data).then(({documents}) => ({type: 'ADD_FILES', documents: documents})).catch(() => ({type: ''}));
+    return upload(data).then(({documents}) => ({type: 'ADD_FILES', documents: documents}));
   },
   getFiles: () => {
-    return getFiles().then(({documents}) => ({type: 'SET_FILES', documents: documents})).catch(() => ({type: ''}));
+    return getFiles().then(({documents}) => ({type: 'SET_FILES', documents: documents}));
   },
   download: (index) => {
     return download(index)
@@ -19,13 +19,13 @@ const documentsActions = {
         link.setAttribute('download', `file.${extension}`);
         document.body.appendChild(link);
         link.click();
-
-        return {type: ''};
-      })
-      .catch(() => ({type: ''}));
+      });
   },
   remove: (index) => {
-    return remove(index).then(({index}) => ({type: 'REMOVE_FILE', index: index})).catch(() => ({type: ''}));
+    return remove(index).then(({index}) => ({type: 'REMOVE_FILE', index: index}));
+  },
+  clear: () => {
+    return clear().then(() => ({type: 'CLEAR_FILES'}));
   }
 };
 

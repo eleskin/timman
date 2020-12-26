@@ -11,7 +11,7 @@ const authActions = {
     return login(data).then(({id}) => ({type: 'LOG_IN', id: id})).catch(() => ({type: 'LOG_OUT'}));
   },
   logout: (data) => {
-    return logout(data).then(() => ({type: 'LOG_OUT'})).catch(() => ({type: 'LOG_IN'}));
+    return logout(data).then(() => ({type: 'LOG_OUT'}));
   }
 };
 

@@ -37,6 +37,7 @@ export const getFiles = () => {
       item.title = title[title.length - 1];
     });
 
+
     return response.status === 200 ? {documents: [...response.data]} : false;
   })();
 };
@@ -66,4 +67,8 @@ export const remove = (index) => {
 
     return response.status === 200 ? {index: Number(response.data)} : false;
   })(index);
+};
+
+export const clear = () => {
+  return (async () => true)();
 };

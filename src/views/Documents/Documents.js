@@ -28,7 +28,7 @@ const Documents = (props) => {
   };
 
   const getFiles = props.getFiles;
-  useEffect(() => getFiles(), [getFiles]);
+  useEffect(getFiles, [getFiles]);
 
   const documentsList = props.documents.map((document, index) => (
     <Col md={3} key={index}>
