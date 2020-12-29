@@ -1,9 +1,12 @@
 .register {
-  padding-top: 100px;
+  padding-top: 0.5rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-.register__form {
-  text-align: left;
-  margin-top: 20px;
-  margin-bottom: 10px;
+.register__wrapper {
+  width: 100%;
 }
