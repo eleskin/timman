@@ -19,6 +19,8 @@ const documentsActions = {
         link.setAttribute('download', `file.${extension}`);
         document.body.appendChild(link);
         link.click();
+
+        return {type: ''};
       });
   },
   remove: (index) => {

@@ -1,6 +1,5 @@
 import React from 'react';
-import './App.css';
-// import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css'
 import 'antd/dist/antd.css';
 import {BrowserRouter, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
