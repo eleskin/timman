@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import {BrowserRouter, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -27,7 +27,7 @@ const App = props => {
           <Sidebar auth={auth}/>
           <Layout className="site-layout">
             {/*<Header className="site-layout-background" style={{padding: 0}}/>*/}
-            <Content style={{margin: '0 1rem'}}>
+            <Content style={{margin: '0.5rem'}}>
               <Switch>
                 <PublicRoute auth={auth} exact path="/login" component={Login}/>
                 <PublicRoute auth={auth} exact path="/register" component={Register}/>

@@ -19,6 +19,9 @@ export const upload = (data) => {
       }
     });
 
+    const title = response.data.document.title;
+    response.data.document.title = title.split('/')[title.split('/').length - 1];
+
     return response.status === 201 ? {documents: [response.data.document]} : false;
   })(data);
 };

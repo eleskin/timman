@@ -1,18 +1,19 @@
 import React, {useEffect, useState} from 'react';
-import {Card, Col, Container, Row} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import styles from './Documents.module.css';
-import Dropzone from 'react-dropzone';
+import {Upload, Row, Col, Card} from 'antd';
+import {InboxOutlined, VerticalAlignBottomOutlined, DeleteOutlined} from '@ant-design/icons';
+
+const {Dragger} = Upload;
+const { Meta } = Card;
 
 const Documents = (props) => {
   const [file, setFile] = useState(null);
 
-  const handleUploadFile = acceptedFiles => setFile({file: acceptedFiles[0]});
-
   useEffect(() => {
     if (file) {
       props.upload(file);
+      setFile(null);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [file]);
@@ -31,42 +32,43 @@ const Documents = (props) => {
   useEffect(getFiles, [getFiles]);
 
   const documentsList = props.documents.map((document, index) => (
-    <Col md={3} key={index}>
-      <Card>
-        <Card.Body>
-          <Card.Text>{document.title}</Card.Text>
-          <Card.Link
-            href=""
-            onClick={event => handleDownload(event, document.id)}
-          >
-            Download
-          </Card.Link>
-          <Card.Link
-            href=""
-            onClick={event => handleRemove(event, document.id)}
-          >
-            Remove
-          </Card.Link>
-        </Card.Body>
+    <Col md={6} key={index}>
+      <Card
+        actions={[
+          <VerticalAlignBottomOutlined onClick={event => handleDownload(event, document.id)}/>,
+          <DeleteOutlined onClick={event => handleRemove(event, document.id)}/>
+        ]}
+      >
+        <Meta
+          title={document.title}
+        />
       </Card>
     </Col>
   ));
 
   return (
     <div>
-      <Container fluid>
-        <Dropzone onDrop={acceptedFiles => handleUploadFile(acceptedFiles)}>
-          {({getRootProps, getInputProps}) => (
-            <div className={styles.form__upload}>
-              <div className={styles.form__upload_label} {...getRootProps()}>
-                <input {...getInputProps()} multiple={false}/>
-                <p>Drag 'n' drop some files here, or click to select files</p>
-              </div>
-            </div>
-          )}
-        </Dropzone>
-        <Row>{documentsList}</Row>
-      </Container>
+      <Row gutter={[16, 16]}>
+        <Col span={24}>
+          <Dragger
+            showUploadList={false}
+            beforeUpload={file => {
+              setFile({file});
+              return false;
+            }}
+          >
+            <p className="ant-upload-drag-icon">
+              <InboxOutlined />
+            </p>
+            <p className="ant-upload-text">Click or drag file to this area to upload</p>
+            <p className="ant-upload-hint">
+              Support for a single or bulk upload. Strictly prohibit from uploading company data or other
+              band files
+            </p>
+          </Dragger>
+        </Col>
+      </Row>
+      <Row gutter={[16, 16]}>{documentsList}</Row>
     </div>
   );
 };
