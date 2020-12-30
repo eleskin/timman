@@ -1,23 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import {Upload, Row, Col, Card} from 'antd';
-import {InboxOutlined, VerticalAlignBottomOutlined, DeleteOutlined} from '@ant-design/icons';
+import {InboxOutlined, DownloadOutlined, DeleteOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
 const { Meta } = Card;
 
 const Documents = (props) => {
-  const [file, setFile] = useState(null);
-
-  useEffect(() => {
-    if (file) {
-      props.upload(file);
-      setFile(null);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [file]);
-
   const handleDownload = (event, index) => {
     event.preventDefault();
     props.download(index);
@@ -35,7 +25,7 @@ const Documents = (props) => {
     <Col md={6} key={index}>
       <Card
         actions={[
-          <VerticalAlignBottomOutlined onClick={event => handleDownload(event, document.id)}/>,
+          <DownloadOutlined onClick={event => handleDownload(event, document.id)}/>,
           <DeleteOutlined onClick={event => handleRemove(event, document.id)}/>
         ]}
       >
@@ -51,9 +41,10 @@ const Documents = (props) => {
       <Row gutter={[16, 16]}>
         <Col span={24}>
           <Dragger
+            multiple={true}
             showUploadList={false}
             beforeUpload={file => {
-              setFile({file});
+              props.upload(file)
               return false;
             }}
           >
@@ -61,10 +52,6 @@ const Documents = (props) => {
               <InboxOutlined />
             </p>
             <p className="ant-upload-text">Click or drag file to this area to upload</p>
-            <p className="ant-upload-hint">
-              Support for a single or bulk upload. Strictly prohibit from uploading company data or other
-              band files
-            </p>
           </Dragger>
         </Col>
       </Row>

@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import {Button, Card, Col, Row, Typography} from 'antd';
-import {VerticalAlignBottomOutlined} from '@ant-design/icons';
+import {DownloadOutlined} from '@ant-design/icons';
 
 const {Title} = Typography;
 
@@ -21,9 +21,7 @@ const Home = props => {
     <Card
       title={document.title}
       extra={
-        <Button onClick={event => handleDownload(event, document.id)}>
-          <VerticalAlignBottomOutlined/>
-        </Button>
+        <Button type="primary" icon={<DownloadOutlined/>} onClick={event => handleDownload(event, document.id)}/>
       }
       key={index}
       bodyStyle={{display: 'none'}}
@@ -34,9 +32,11 @@ const Home = props => {
     <div>
       <Row>
         <Col md={6}>
-          <Title level={3}>Documents</Title>
+          <Row justify="space-between">
+            <Title level={3}>Documents</Title>
+            <Link to="/documents">See all</Link>
+          </Row>
           <div>{documentsList}</div>
-          <Link to="/documents">See all</Link>
         </Col>
       </Row>
     </div>

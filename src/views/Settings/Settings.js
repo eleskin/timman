@@ -1,8 +1,8 @@
 import React from 'react';
-import {Button} from 'react-bootstrap';
 import {connect} from 'react-redux';
 import authActions from '../../utils/auth/authActions';
 import documentsActions from '../../utils/documents/documentsActions';
+import {Button} from 'antd';
 
 const Settings = (props) => {
   const handleLogout = (event) => {
@@ -12,7 +12,7 @@ const Settings = (props) => {
 
   return (
     <div>
-      <Button onClick={handleLogout}>Logout</Button>
+      <Button type="link" onClick={handleLogout}>Logout</Button>
     </div>
   );
 };

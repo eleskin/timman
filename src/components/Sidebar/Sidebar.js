@@ -16,7 +16,7 @@ const Sidebar = props => {
   };
 
   return (
-    <Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+    <Sider collapsed={false} onCollapse={onCollapse}>
       <div className={`${styles.sidebar__logo} ${collapsed && styles.sidebar__logo__collapsed_true}`}>
         <Link to="/home">Timman</Link>
       </div>

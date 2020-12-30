@@ -9,8 +9,8 @@ export const upload = (data) => {
     formData.set('user_id', store.getState().authReducer.id);
     formData.append(
       'file',
-      data.file,
-      data.file.name
+      data,
+      data.name
     );
 
     const response = await axios.post('http://127.0.0.1:8000/api/documents/', formData, {
