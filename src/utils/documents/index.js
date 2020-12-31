@@ -7,6 +7,7 @@ export const upload = (data) => {
     const formData = new FormData();
 
     formData.set('user_id', store.getState().authReducer.id);
+    formData.set('file_name', data.name);
     formData.append(
       'file',
       data,
@@ -45,10 +46,10 @@ export const getFiles = () => {
   })();
 };
 
-export const download = (index) => {
-  return (async (index) => {
+export const download = (data) => {
+  return (async (data) => {
     const response = await axios
-      .get(`http://127.0.0.1:8000/api/documents/${index}`, {
+      .get(`http://127.0.0.1:8000/api/documents/${data.index}`, {
         headers: {
           Authorization: getToken()
         },
@@ -56,7 +57,7 @@ export const download = (index) => {
       });
 
     return response.status === 200 ? response : false;
-  })(index);
+  })(data);
 };
 
 export const remove = (index) => {

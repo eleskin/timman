@@ -8,9 +8,9 @@ const {Dragger} = Upload;
 const { Meta } = Card;
 
 const Documents = (props) => {
-  const handleDownload = (event, index) => {
+  const handleDownload = (event, index, name) => {
     event.preventDefault();
-    props.download(index);
+    props.download({index, name});
   };
 
   const handleRemove = (event, index) => {
@@ -25,7 +25,7 @@ const Documents = (props) => {
     <Col md={6} key={index}>
       <Card
         actions={[
-          <DownloadOutlined onClick={event => handleDownload(event, document.id)}/>,
+          <DownloadOutlined onClick={event => handleDownload(event, document.id, document.title)}/>,
           <DeleteOutlined onClick={event => handleRemove(event, document.id)}/>
         ]}
       >
@@ -69,7 +69,7 @@ export default connect(
   dispatch => ({
     upload: data => documentsActions.upload(data).then(result => dispatch(result)),
     getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
-    download: index => documentsActions.download(index).then(result => dispatch(result)),
+    download: data => documentsActions.download(data).then(result => dispatch(result)),
     remove: index => documentsActions.remove(index).then(result => dispatch(result))
   })
 )

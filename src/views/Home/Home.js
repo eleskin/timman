@@ -12,16 +12,16 @@ const Home = props => {
   const getFiles = props.getFiles;
   useEffect(() => getFiles(), [getFiles]);
 
-  const handleDownload = (event, index) => {
+  const handleDownload = (event, index, name) => {
     event.preventDefault();
-    props.download(index);
+    props.download({index, name});
   };
 
   const documentsList = props.documents.slice(0, 5).map((document, index) => (
     <Card
       title={document.title}
       extra={
-        <Button type="primary" icon={<DownloadOutlined/>} onClick={event => handleDownload(event, document.id)}/>
+        <Button type="primary" icon={<DownloadOutlined/>} onClick={event => handleDownload(event, document.id, document.title)}/>
       }
       key={index}
       bodyStyle={{display: 'none'}}

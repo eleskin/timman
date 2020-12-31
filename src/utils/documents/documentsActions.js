@@ -7,16 +7,13 @@ const documentsActions = {
   getFiles: () => {
     return getFiles().then(({documents}) => ({type: 'SET_FILES', documents: documents}));
   },
-  download: (index) => {
-    return download(index)
+  download: (data) => {
+    return download(data)
       .then(response => {
-        const fileTypeArray = response.data.type.split('/');
-        const extension = fileTypeArray[fileTypeArray.length - 1];
-
         const url = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = url;
-        link.setAttribute('download', `file.${extension}`);
+        link.setAttribute('download', data.name);
         document.body.appendChild(link);
         link.click();
 
