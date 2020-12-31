@@ -20,9 +20,6 @@ export const upload = (data) => {
       }
     });
 
-    const title = response.data.document.title;
-    response.data.document.title = title.split('/')[title.split('/').length - 1];
-
     return response.status === 201 ? {documents: [response.data.document]} : false;
   })(data);
 };
@@ -35,12 +32,6 @@ export const getFiles = () => {
         user_id: store.getState().authReducer.id
       }
     });
-
-    response.data.forEach(item => {
-      const title = item.title.split('/');
-      item.title = title[title.length - 1];
-    });
-
 
     return response.status === 200 ? {documents: [...response.data]} : false;
   })();
@@ -73,6 +64,4 @@ export const remove = (index) => {
   })(index);
 };
 
-export const clear = () => {
-  return (async () => true)();
-};
+export const clear = () => (async () => true)();

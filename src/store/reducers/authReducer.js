@@ -3,15 +3,16 @@ const LOG_OUT = 'LOG_OUT';
 
 const initialState = {
   auth: null,
-  id: null
+  id: null,
+  name: null
 };
 
 const authReducer = (state = initialState, action) => {
   switch(action.type) {
     case LOG_IN:
-      return {...state, auth: true, id: action.id}
+      return {...state, auth: true, id: action.id, name: action.name}
     case LOG_OUT:
-      return {auth: false, id: null}
+      return {auth: false, id: null, name: null}
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import React, {useEffect} from 'react';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import {Button, Card, Col, Row, Typography} from 'antd';
+import {Button, Card, Col, Empty, Row, Typography} from 'antd';
 import {DownloadOutlined} from '@ant-design/icons';
 
 const {Title} = Typography;
@@ -36,7 +36,7 @@ const Home = props => {
             <Title level={3}>Documents</Title>
             <Link to="/documents">See all</Link>
           </Row>
-          <div>{documentsList}</div>
+          <div>{documentsList.length ? documentsList : <Empty/>}</div>
         </Col>
       </Row>
     </div>
@@ -44,14 +44,14 @@ const Home = props => {
 };
 
 export default connect(
-  (state) => {
+  state => {
     const {documents} = state.documentsReducer;
 
     return {documents};
   },
   dispatch => ({
     getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
-    download: index => documentsActions.download(index).then(result => dispatch(result))
+    download: index => documentsActions.download(index)
   })
 )
 (Home);

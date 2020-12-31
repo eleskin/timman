@@ -1,17 +1,20 @@
-import {register, login, authenticate, logout} from './index';
+import {register, login, authenticate, logout, getName} from './index';
 
 const authActions = {
   authenticate: () => {
-    return authenticate().then(({id}) => ({type: 'LOG_IN', id: id})).catch(() => ({type: 'LOG_OUT'}));
+    return authenticate().then(({id, name}) => ({type: 'LOG_IN', id: id, name: name})).catch(() => ({type: 'LOG_OUT'}));
   },
   register: (data) => {
-    return register(data).then(() => ({type: 'LOG_IN'})).catch(() => ({type: 'LOG_OUT'}));
+    return register(data).then(({id, name}) => ({type: 'LOG_IN', id: id, name: name})).catch(() => ({type: 'LOG_OUT'}));
   },
   login: (data) => {
-    return login(data).then(({id}) => ({type: 'LOG_IN', id: id})).catch(() => ({type: 'LOG_OUT'}));
+    return login(data).then(({id, name}) => ({type: 'LOG_IN', id: id, name: name})).catch(() => ({type: 'LOG_OUT'}));
   },
   logout: (data) => {
     return logout(data).then(() => ({type: 'LOG_OUT'}));
+  },
+  getName: () => {
+    return getName();
   }
 };
 

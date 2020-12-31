@@ -1,0 +1,10 @@
+.header__container {
+    padding: 0 1rem;
+}
+
+.header__profile {
+    cursor: pointer;
+    color: #ffffff;
+    font-weight: 600;
+    font-size: 16px;
+}

@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import {Upload, Row, Col, Card} from 'antd';
+import {Upload, Row, Col, Card, Empty} from 'antd';
 import {InboxOutlined, DownloadOutlined, DeleteOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
@@ -55,7 +55,9 @@ const Documents = (props) => {
           </Dragger>
         </Col>
       </Row>
-      <Row gutter={[16, 16]}>{documentsList}</Row>
+      <Row gutter={[16, 16]}>
+        {documentsList.length ? documentsList : <Col span={24}><Empty/></Col>}
+      </Row>
     </div>
   );
 };
@@ -69,7 +71,7 @@ export default connect(
   dispatch => ({
     upload: data => documentsActions.upload(data).then(result => dispatch(result)),
     getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
-    download: data => documentsActions.download(data).then(result => dispatch(result)),
+    download: data => documentsActions.download(data),
     remove: index => documentsActions.remove(index).then(result => dispatch(result))
   })
 )

@@ -1,4 +1,5 @@
 import axios from 'axios';
+import store from '../../store/store';
 
 const removeToken = () => {
   localStorage.clear();
@@ -24,7 +25,7 @@ export const authenticate = () => {
       }
     });
 
-    return response.status === 200 ? {id: response.data.id} : false;
+    return response.status === 200 ? {id: response.data.id, name: response.data.name} : false;
 
   })();
 };
@@ -36,7 +37,7 @@ export const register = (data) => {
     if (response.status === 200) {
       setToken(response.data);
 
-      return  {id: response.data.id};
+      return  {id: response.data.id, name: response.data.name};
     }
     return false;
   })(data);
@@ -49,7 +50,7 @@ export const login = (data) => {
     if (response.status === 200) {
       setToken(response.data);
 
-      return  {id: response.data.id};
+      return  {id: response.data.id, name: response.data.name};
     }
     return false;
   })(data);
@@ -71,3 +72,5 @@ export const logout = () => {
     return false;
   })();
 };
+
+export const getName = () => store.getState();

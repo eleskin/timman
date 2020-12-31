@@ -16,8 +16,6 @@ const documentsActions = {
         link.setAttribute('download', data.name);
         document.body.appendChild(link);
         link.click();
-
-        return {type: ''};
       });
   },
   remove: (index) => {
