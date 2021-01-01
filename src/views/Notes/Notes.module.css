@@ -1,0 +1,21 @@
+.notes {
+    height: 100%;
+}
+
+.notes__row {
+    height: 100%;
+}
+
+.notes__menu {
+    margin-top: 1rem;
+}
+
+.notes__body {
+    box-sizing: border-box;
+}
+
+.notes__text {
+    font-size: 20px;
+    height: 100%;
+    resize: none;
+}

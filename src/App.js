@@ -14,6 +14,7 @@ import Documents from './views/Documents/Documents';
 // import Settings from './views/Settings/Settings';
 import {Layout} from 'antd';
 import Header from './components/Header/Header';
+import Notes from './views/Notes/Notes';
 
 const {Content} = Layout;
 
@@ -26,7 +27,6 @@ const App = props => {
         <Layout style={{minHeight: '100vh'}}>
           <Sidebar auth={auth}/>
           <Layout className="site-layout">
-            {/*<Header className="site-layout-background"/>*/}
             {auth && <Header/>}
             <Content style={{margin: '0.5rem'}}>
               <Switch>
@@ -34,6 +34,10 @@ const App = props => {
                 <PublicRoute auth={auth} exact path="/register" component={Register}/>
 
                 <PrivateRoute auth={auth} exact path="/home" component={Home}/>
+
+                <PrivateRoute auth={auth} exact path="/notes" component={Notes}/>
+                <PrivateRoute auth={auth} exact path="/notes/:id" component={Notes}/>
+
                 <PrivateRoute auth={auth} exact path="/documents" component={Documents}/>
                 {/*<PrivateRoute auth={auth} exact path="/settings" component={Settings}/>*/}
                 <NullRoute auth={auth}/>

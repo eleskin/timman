@@ -1,10 +1,10 @@
 import React from 'react';
-import {Redirect} from 'react-router-dom';
+import {Redirect, Route} from 'react-router-dom';
 
 const PrivateRoute = ({component: Component, auth, ...rest}) => {
   if (auth === null) return null;
   return auth
-    ? <Component {...rest}/>
+    ? <Route {...rest} children={<Component auth={auth}/>}/>
     : <Redirect to={{pathname: '/login', state: {from: rest.location.pathname}}}/>;
 };
 

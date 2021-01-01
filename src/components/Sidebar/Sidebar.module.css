@@ -4,22 +4,16 @@
 }
 
 .sidebar__logo > a {
-  font-size: 24px;
   color: #ffffff;
   font-weight: bold;
-  transition: 0.2s;
-  margin: 11px auto;
+  margin: 17.5px auto;
   display: block;
   text-align: center;
+  font-size: 16px;
 }
 
 .sidebar__logo > a:hover {
   color: #ffffff;
-}
-
-.sidebar__logo__collapsed_true > a {
-  font-size: 16px;
-  transition: 0.2s;
 }
 
 .sidebar__link {
