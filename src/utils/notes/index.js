@@ -30,3 +30,15 @@ export const getNotes = () => {
     return response.status === 200 ? {notes: [...response.data]} : false;
   })();
 };
+
+export const getNoteValue = id => {
+  return (async id => {
+    const response = await axios.get(`http://127.0.0.1:8000/api/notes/${id}`, {
+      headers: {
+        Authorization: getToken()
+      }
+    });
+
+    return response.status === 200 ? response.data : false;
+  })(id);
+};

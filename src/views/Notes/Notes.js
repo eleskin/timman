@@ -16,6 +16,7 @@ const Notes = props => {
 
   const handleChange = event => {
     setNoteValue(event.target.value);
+    console.log(noteValue);
   };
 
   const handleClick = () => {
@@ -23,12 +24,20 @@ const Notes = props => {
     !visibleInput && props.create();
   };
 
+  const handleSelect = (event, id) => {
+    setVisibleInput(true);
+    props.getNoteValue(id);
+    setNoteValue(props.noteValue);
+  };
+
   const getNotes = props.getNotes;
   useEffect(getNotes, [getNotes]);
 
   const notesList = props.notes.map(note => (
-    <Menu.Item key={`/notes/${note.id}`}>
-      <Link to={`/notes/${note.id}`}>{note.title ? note.title : 'Not title'}</Link>
+    <Menu.Item key={`/notes/${note.id}`} onClick={event => handleSelect(event, note.id)}>
+      <Link to={`/notes/${note.id}`}>
+        {note.title ? note.title : 'Untitled'}
+      </Link>
     </Menu.Item>
   ));
 
@@ -44,7 +53,12 @@ const Notes = props => {
           >
             <PlusOutlined/> New note
           </Button>
-          <Menu mode="vertical" className={styles.notes__menu}>{notesList}</Menu>
+          <Menu
+            mode="vertical"
+            className={styles.notes__menu}
+          >
+            {notesList}
+          </Menu>
         </Col>
         <Col span={20} className={styles.notes__body} style={{height: '100%'}}>
           {
@@ -66,12 +80,13 @@ const Notes = props => {
 
 export default connect(
   state => {
-    const {notes} = state.notesReducer;
+    const {notes, noteValue} = state.notesReducer;
 
-    return {notes};
+    return {notes, noteValue};
   },
   dispatch => ({
     create: () => notesActions.create().then(result => dispatch(result)),
-    getNotes: () => notesActions.getNotes().then(result => dispatch(result))
+    getNotes: () => notesActions.getNotes().then(result => dispatch(result)),
+    getNoteValue: id => notesActions.getNoteValue(id).then(result => dispatch(result))
   })
 )(Notes);
