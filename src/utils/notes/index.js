@@ -39,23 +39,22 @@ export const getNoteValue = id => {
       }
     });
 
-    return response.status === 200 ? response.data : false;
+    return response.status === 200 ? {title: response.data.title, value: response.data.value, id: response.data.id} : false;
   })(id);
 };
 
-export const save = (id, value) => {
-  return (async (id, value) => {
+export const save = (id, value, title) => {
+  return (async (id, value, title) => {
     const response = await axios.put(`http://127.0.0.1:8000/api/notes/`, {
       id,
-      value
+      value,
+      title
     },{
       headers: {
         Authorization: getToken()
       }
     });
 
-    console.log(response);
-
-    // return response.status === 200 ? response.data : false;
-  })(id, value);
+    return response.status === 201 ? {title: response.data.title, value: response.data.value, id: response.data.id} : false;
+  })(id, value, title);
 };

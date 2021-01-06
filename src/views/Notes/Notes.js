@@ -4,13 +4,14 @@ import {Button, Col, Menu, Row, Input, Result} from 'antd';
 import {PlusOutlined, SaveOutlined} from '@ant-design/icons';
 import {connect} from 'react-redux';
 import notesActions from '../../utils/notes/notesActions';
-import {Link, useParams} from 'react-router-dom';
+import {Link, useLocation, useParams} from 'react-router-dom';
 import store from '../../store/store';
 
 const {TextArea} = Input;
 
 const Notes = props => {
   const {id} = useParams();
+  const location = useLocation();
 
   const [visibleInput, setVisibleInput] = useState(false);
   const [noteValue, setNoteValue] = useState('');
@@ -24,7 +25,7 @@ const Notes = props => {
     setNoteValue(event.target.value);
 
     const timer = setTimeout(async () => {
-      await props.save(id, event.target.value);
+      await props.save(id, event.target.value, event.target.value.split('\n')[0]);
       setMenuEnable(true);
     }, 1000);
 
@@ -33,7 +34,7 @@ const Notes = props => {
 
   const handleClick = () => {
     setVisibleInput(true);
-    !visibleInput && props.create();
+    props.create();
   };
 
   const handleSelect = async (event, id) => {
@@ -42,10 +43,9 @@ const Notes = props => {
     setVisibleInput(true);
   };
 
-  // id && handleSelect(null, id);
-
   const getNotes = props.getNotes;
   useEffect(getNotes, [getNotes]);
+
 
   const notesList = props.notes.map(note => (
     <Menu.Item
@@ -76,6 +76,7 @@ const Notes = props => {
               <Menu
                 mode="vertical"
                 className={styles.notes__menu}
+                selectedKeys={location.pathname}
               >
                 {notesList}
               </Menu>
@@ -106,14 +107,14 @@ const Notes = props => {
 
 export default connect(
   state => {
-    const {notes, noteValue} = state.notesReducer;
+    const {notes, noteValue, noteTitle} = state.notesReducer;
 
-    return {notes, noteValue};
+    return {notes, noteValue, noteTitle};
   },
   dispatch => ({
     create: () => notesActions.create().then(result => dispatch(result)),
     getNotes: () => notesActions.getNotes().then(result => dispatch(result)),
     getNoteValue: id => notesActions.getNoteValue(id).then(result => dispatch(result)),
-    save: (id, value) => notesActions.save(id, value).then(result => dispatch(result))
+    save: (id, value, title) => notesActions.save(id, value, title).then(result => dispatch(result))
   })
 )(Notes);

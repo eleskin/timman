@@ -7,8 +7,6 @@ import {FileOutlined, HomeOutlined, BarsOutlined} from '@ant-design/icons';
 const Sidebar = props => {
   const location = useLocation();
 
-  console.log()
-
   return (
     <Layout.Sider collapsed={true}>
       <div className={`${styles.sidebar__logo} ${styles.sidebar__logo__collapsed_true}`}>
