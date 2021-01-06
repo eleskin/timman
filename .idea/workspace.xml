@@ -4,7 +4,6 @@
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.4.1">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/notes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/notes/notesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/notesActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Notes/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/Notes.js" afterDir="false" />
@@ -118,7 +117,10 @@
       <workItem from="1609421448765" duration="13485000" />
       <workItem from="1609513210143" duration="11564000" />
       <workItem from="1609665120572" duration="505000" />
-      <workItem from="1609770332009" duration="8247000" />
+      <workItem from="1609770332009" duration="9153000" />
+      <workItem from="1609783402715" duration="57000" />
+      <workItem from="1609876253128" duration="35000" />
+      <workItem from="1609936719864" duration="4620000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -379,7 +381,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609775082311</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="0.4.1">
+      <created>1609781004114</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1609781004114</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -42,3 +42,20 @@ export const getNoteValue = id => {
     return response.status === 200 ? response.data : false;
   })(id);
 };
+
+export const save = (id, value) => {
+  return (async (id, value) => {
+    const response = await axios.put(`http://127.0.0.1:8000/api/notes/`, {
+      id,
+      value
+    },{
+      headers: {
+        Authorization: getToken()
+      }
+    });
+
+    console.log(response);
+
+    // return response.status === 200 ? response.data : false;
+  })(id, value);
+};

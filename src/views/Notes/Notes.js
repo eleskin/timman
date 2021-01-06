@@ -1,22 +1,34 @@
 import React, {useEffect, useState} from 'react';
 import styles from './Notes.module.css';
-import {Button, Col, Menu, Row, Input} from 'antd';
-import {PlusOutlined} from '@ant-design/icons';
+import {Button, Col, Menu, Row, Input, Result} from 'antd';
+import {PlusOutlined, SaveOutlined} from '@ant-design/icons';
 import {connect} from 'react-redux';
-import notesActions from '../../utils/notes/notesActions'
-import {Link} from 'react-router-dom';
+import notesActions from '../../utils/notes/notesActions';
+import {Link, useParams} from 'react-router-dom';
+import store from '../../store/store';
 
 const {TextArea} = Input;
 
 const Notes = props => {
-  // const {id} = useParams();
+  const {id} = useParams();
 
   const [visibleInput, setVisibleInput] = useState(false);
   const [noteValue, setNoteValue] = useState('');
+  const [timerID, setTimerID] = useState(Number());
+  const [menuEnable, setMenuEnable] = useState(true);
 
-  const handleChange = event => {
+  const handleChange = (event, id) => {
+    setMenuEnable(false);
+
+    clearTimeout(timerID);
     setNoteValue(event.target.value);
-    console.log(noteValue);
+
+    const timer = setTimeout(async () => {
+      await props.save(id, event.target.value);
+      setMenuEnable(true);
+    }, 1000);
+
+    setTimerID(timer);
   };
 
   const handleClick = () => {
@@ -24,17 +36,22 @@ const Notes = props => {
     !visibleInput && props.create();
   };
 
-  const handleSelect = (event, id) => {
+  const handleSelect = async (event, id) => {
+    await props.getNoteValue(id);
+    setNoteValue(store.getState().notesReducer.noteValue);
     setVisibleInput(true);
-    props.getNoteValue(id);
-    setNoteValue(props.noteValue);
   };
+
+  // id && handleSelect(null, id);
 
   const getNotes = props.getNotes;
   useEffect(getNotes, [getNotes]);
 
   const notesList = props.notes.map(note => (
-    <Menu.Item key={`/notes/${note.id}`} onClick={event => handleSelect(event, note.id)}>
+    <Menu.Item
+      key={`/notes/${note.id}`}
+      onClick={event => handleSelect(event, note.id)}
+    >
       <Link to={`/notes/${note.id}`}>
         {note.title ? note.title : 'Untitled'}
       </Link>
@@ -53,12 +70,21 @@ const Notes = props => {
           >
             <PlusOutlined/> New note
           </Button>
-          <Menu
-            mode="vertical"
-            className={styles.notes__menu}
-          >
-            {notesList}
-          </Menu>
+          {
+            menuEnable
+              ?
+              <Menu
+                mode="vertical"
+                className={styles.notes__menu}
+              >
+                {notesList}
+              </Menu>
+              :
+              <Result
+                icon={<SaveOutlined/>}
+                title="Saving"
+              />
+          }
         </Col>
         <Col span={20} className={styles.notes__body} style={{height: '100%'}}>
           {
@@ -69,7 +95,7 @@ const Notes = props => {
               className={styles.notes__text}
               style={{height: '100%', resize: 'none'}}
               value={noteValue}
-              onChange={handleChange}
+              onChange={event => handleChange(event, id)}
             />
           }
         </Col>
@@ -87,6 +113,7 @@ export default connect(
   dispatch => ({
     create: () => notesActions.create().then(result => dispatch(result)),
     getNotes: () => notesActions.getNotes().then(result => dispatch(result)),
-    getNoteValue: id => notesActions.getNoteValue(id).then(result => dispatch(result))
+    getNoteValue: id => notesActions.getNoteValue(id).then(result => dispatch(result)),
+    save: (id, value) => notesActions.save(id, value).then(result => dispatch(result))
   })
 )(Notes);
