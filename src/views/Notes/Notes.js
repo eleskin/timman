@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import styles from './Notes.module.css';
 import {Button, Col, Menu, Row, Input, Result} from 'antd';
@@ -10,13 +11,19 @@ import store from '../../store/store';
 const {TextArea} = Input;
 
 const Notes = props => {
-  const {id} = useParams();
-  const location = useLocation();
-
   const [visibleInput, setVisibleInput] = useState(false);
   const [noteValue, setNoteValue] = useState('');
   const [timerID, setTimerID] = useState(Number());
   const [menuEnable, setMenuEnable] = useState(true);
+
+  const {id} = useParams();
+  const location = useLocation();
+
+  // useEffect(() => {
+  //   props.getNoteValue(id);
+  //   setNoteValue(store.getState().notesReducer.noteValue);
+  //   setVisibleInput(true);
+  // }, []);
 
   const handleChange = (event, id) => {
     setMenuEnable(false);
@@ -43,8 +50,13 @@ const Notes = props => {
     setVisibleInput(true);
   };
 
-  const getNotes = props.getNotes;
-  useEffect(getNotes, [getNotes]);
+  useEffect(() => {
+    (async () => props.getNotes())().then(async () => {
+      await props.getNoteValue(id);
+      setNoteValue(store.getState().notesReducer.noteValue);
+      id && setVisibleInput(true);
+    });
+  }, []);
 
 
   const notesList = props.notes.map(note => (

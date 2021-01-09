@@ -4,13 +4,18 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import {Button, Card, Col, Empty, Row, Typography} from 'antd';
-import {DownloadOutlined} from '@ant-design/icons';
+import {DownloadOutlined, FileTextOutlined} from '@ant-design/icons';
+import notesActions from '../../utils/notes/notesActions';
 
 const {Title} = Typography;
 
 const Home = props => {
   const getFiles = props.getFiles;
-  useEffect(() => getFiles(), [getFiles]);
+  const getNotes = props.getNotes;
+  useEffect(() => {
+    getFiles();
+    getNotes();
+  }, [getFiles, getNotes]);
 
   const handleDownload = (event, index, name) => {
     event.preventDefault();
@@ -21,7 +26,28 @@ const Home = props => {
     <Card
       title={document.title}
       extra={
-        <Button type="primary" icon={<DownloadOutlined/>} onClick={event => handleDownload(event, document.id, document.title)}/>
+        <Button
+          type="primary"
+          icon={<DownloadOutlined/>}
+          onClick={event => handleDownload(event, document.id, document.title)}
+        />
+      }
+      key={index}
+      bodyStyle={{display: 'none'}}
+    />
+  ));
+
+  const notesList = props.notes.slice(0, 5).map((note, index) => (
+    <Card
+      title={note.title}
+      extra={
+        <Link to={`/notes/${note.id}`}>
+          <Button
+            type="primary"
+            icon={<FileTextOutlined/>}
+          >
+          </Button>
+        </Link>
       }
       key={index}
       bodyStyle={{display: 'none'}}
@@ -30,7 +56,14 @@ const Home = props => {
 
   return (
     <div>
-      <Row>
+      <Row gutter={[16, 16]}>
+        <Col md={6}>
+          <Row justify="space-between">
+            <Title level={3}>Notes</Title>
+            <Link to="/notes">See all</Link>
+          </Row>
+          <div>{notesList.length ? notesList : <Empty/>}</div>
+        </Col>
         <Col md={6}>
           <Row justify="space-between">
             <Title level={3}>Documents</Title>
@@ -46,12 +79,14 @@ const Home = props => {
 export default connect(
   state => {
     const {documents} = state.documentsReducer;
+    const {notes} = state.notesReducer;
 
-    return {documents};
+    return {documents, notes};
   },
   dispatch => ({
     getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
-    download: index => documentsActions.download(index)
+    download: index => documentsActions.download(index),
+    getNotes: () => notesActions.getNotes().then(result => dispatch(result)),
   })
 )
 (Home);

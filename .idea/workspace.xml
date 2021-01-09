@@ -1,12 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.4.1">
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.5.1">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/notes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/notes/notesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/notesActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Notes/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/Notes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -121,7 +119,8 @@
       <workItem from="1609770332009" duration="9153000" />
       <workItem from="1609783402715" duration="57000" />
       <workItem from="1609876253128" duration="35000" />
-      <workItem from="1609936719864" duration="7268000" />
+      <workItem from="1609936719864" duration="7476000" />
+      <workItem from="1610221014433" duration="2477000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -396,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1609941475571</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="0.5.1">
+      <created>1609944216891</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1609944216891</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -417,6 +423,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="commit" />
     <MESSAGE value="0.4.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.4.1" />
+    <MESSAGE value="0.5.1" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.5.1" />
   </component>
 </project>
