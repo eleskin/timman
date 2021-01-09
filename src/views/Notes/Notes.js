@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import React, {useEffect, useState} from 'react';
 import styles from './Notes.module.css';
 import {Button, Col, Menu, Row, Input, Result} from 'antd';
@@ -51,11 +50,13 @@ const Notes = props => {
   };
 
   useEffect(() => {
-    (async () => props.getNotes())().then(async () => {
+    (async () => {
+      props.getNotes();
       await props.getNoteValue(id);
       setNoteValue(store.getState().notesReducer.noteValue);
       id && setVisibleInput(true);
-    });
+    })();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
 
