@@ -33,7 +33,7 @@ const Notes = props => {
     const timer = setTimeout(async () => {
       await props.save(id, event.target.value, event.target.value.split('\n')[0]);
       setMenuEnable(true);
-    }, 1000);
+    }, 1500);
 
     setTimerID(timer);
   };
