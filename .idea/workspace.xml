@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.5.1">
+      <change afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesEditor/NotesEditor.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Notes/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/Notes.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -119,7 +123,9 @@
       <workItem from="1609783402715" duration="57000" />
       <workItem from="1609876253128" duration="35000" />
       <workItem from="1609936719864" duration="7476000" />
-      <workItem from="1610221014433" duration="4021000" />
+      <workItem from="1610221014433" duration="4057000" />
+      <workItem from="1610441211031" duration="6000" />
+      <workItem from="1610460596360" duration="1776000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -415,7 +421,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610223944436</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="0.5.1">
+      <created>1610225508784</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1610225508784</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
