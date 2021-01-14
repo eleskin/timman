@@ -5,6 +5,8 @@ import {PlusOutlined, SaveOutlined} from '@ant-design/icons';
 import {Link, useLocation} from 'react-router-dom';
 import store from '../../../../store/store';
 import ContextMenu from '../../../../components/ContextMenu/ContextMenu';
+import {connect} from 'react-redux';
+import notesActions from '../../../../utils/notes/notesActions';
 
 const NotesList = props => {
     const [screenX, setScreenX] = useState(null);
@@ -56,6 +58,9 @@ const NotesList = props => {
       document.addEventListener('click', () => setVisibleContextMenu(false));
     }, []);
 
+    const getNotes = props.getNotes;
+    useEffect(getNotes, [getNotes]);
+
     return (
       <Col span={4} className={styles.notes__list} style={{height: '100%'}}>
         <Button
@@ -72,6 +77,7 @@ const NotesList = props => {
             screenX={screenX}
             screenY={screenY}
             noteID={noteID}
+            onRemove={props.remove}
           />
           {
             props.menuEnable
@@ -95,4 +101,7 @@ const NotesList = props => {
   }
 ;
 
-export default NotesList;
+export default connect(null, dispatch => ({
+  getNotes: () => notesActions.getNotes().then(result => dispatch(result)),
+  remove: id => notesActions.remove(id).then(result => dispatch(result))
+}))(NotesList);
