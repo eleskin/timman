@@ -39,7 +39,11 @@ export const getNoteValue = id => {
       }
     });
 
-    return response.status === 200 ? {title: response.data.title, value: response.data.value, id: response.data.id} : false;
+    return response.status === 200 ? {
+      title: response.data.title,
+      value: response.data.value,
+      id: response.data.id
+    } : false;
   })(id);
 };
 
@@ -49,12 +53,32 @@ export const save = (id, value, title) => {
       id,
       value,
       title
-    },{
+    }, {
       headers: {
         Authorization: getToken()
       }
     });
 
-    return response.status === 201 ? {title: response.data.title, value: response.data.value, id: response.data.id} : false;
+    return response.status === 201 ? {
+      title: response.data.title,
+      value: response.data.value,
+      id: response.data.id
+    } : false;
   })(id, value, title);
+};
+
+export const remove = id => {
+  return (async id => {
+    const response = await axios.delete(`http://127.0.0.1:8000/api/notes/${id}`, {
+      headers: {
+        Authorization: getToken()
+      }
+    });
+
+    console.log(response);
+
+    return response.status === 200 ? {
+      id: response.data.id
+    } : false;
+  })(id);
 };

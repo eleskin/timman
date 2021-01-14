@@ -1,0 +1,47 @@
+.context_menu {
+    position: absolute;
+    box-shadow: 0 3.2px 7.2px 0 rgba(0, 0, 0, .132), 0 0.6px 1.8px 0 rgba(0, 0, 0, .108);
+    padding: 4px 0;
+    background-color: #fff;
+    width: 100%;
+    max-width: 320px;
+    visibility: hidden;
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.visible {
+    z-index: 1;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s ease-in-out;
+}
+
+.context_menu ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.context_menu ul li {
+    padding: 6px 8px;
+    margin: 0 4px;
+    cursor: default;
+    transition: 0.2s ease-in-out;
+}
+
+.context_menu ul li>span {
+    margin: 0 6px;
+    font-size: 14px;
+}
+
+.context_menu ul li>i {
+    margin: 0 6px;
+    font-size: 18px;
+}
+
+.context_menu ul li:hover {
+    background-color: #eee;
+    transition: 0.2s ease-in-out;
+}
