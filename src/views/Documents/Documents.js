@@ -5,7 +5,7 @@ import {Upload, Row, Col, Card, Empty} from 'antd';
 import {InboxOutlined, DownloadOutlined, DeleteOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
-const { Meta } = Card;
+const {Meta} = Card;
 
 const Documents = (props) => {
   const handleDownload = (event, index, name) => {
@@ -44,12 +44,12 @@ const Documents = (props) => {
             multiple={true}
             showUploadList={false}
             beforeUpload={file => {
-              props.upload(file)
+              props.upload(file);
               return false;
             }}
           >
             <p className="ant-upload-drag-icon">
-              <InboxOutlined />
+              <InboxOutlined/>
             </p>
             <p className="ant-upload-text">Click or drag file to this area to upload</p>
           </Dragger>

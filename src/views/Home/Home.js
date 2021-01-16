@@ -39,7 +39,7 @@ const Home = props => {
 
   const notesList = props.notes.slice(0, 5).map((note, index) => (
     <Card
-      title={note.title}
+      title={note.title || 'Untitled'}
       extra={
         <Link to={`/notes/${note.id}`}>
           <Button
