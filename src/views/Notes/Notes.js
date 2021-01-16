@@ -49,6 +49,7 @@ const Notes = props => {
           setNoteValue={setNoteValue}
           menuEnable={menuEnable}
           setVisibleInput={setVisibleInput}
+          createNote={props.create}
         />
         <NotesEditor
           visibleInput={visibleInput}

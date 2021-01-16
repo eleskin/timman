@@ -17,8 +17,7 @@ const NotesList = props => {
     const location = useLocation();
 
     const handleClick = () => {
-      props.setVisibleInput(true);
-      props.create();
+      props.createNote();
     };
 
     const handleSelect = async (event, id) => {

@@ -6,8 +6,8 @@ export const create = () => {
   return (async () => {
     const response = await axios.post('http://127.0.0.1:8000/api/notes/', {
       user_id: store.getState().authReducer.id,
-      title: '1',
-      value: '1'
+      title: '',
+      value: ''
     }, {
       headers: {
         Authorization: getToken()
@@ -75,10 +75,8 @@ export const remove = id => {
       }
     });
 
-    console.log(response);
-
     return response.status === 200 ? {
-      id: response.data.id
+      id: Number(response.data.id)
     } : false;
   })(id);
 };

@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.5.2">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ContextMenu/ContextMenu.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ContextMenu/ContextMenu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/notes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Notes/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/Notes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +143,8 @@
       <workItem from="1610479004132" duration="38000" />
       <workItem from="1610537846577" duration="25000" />
       <workItem from="1610568486127" duration="1385000" />
-      <workItem from="1610628200659" duration="7683000" />
+      <workItem from="1610628200659" duration="7846000" />
+      <workItem from="1610827347260" duration="1730000" />
     </task>
     <task id="LOCAL-00001" summary="commit">
       <created>1607772975307</created>
@@ -457,7 +461,14 @@
       <option name="project" value="LOCAL" />
       <updated>1610641981416</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="0.5.2">
+      <created>1610642417698</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1610642417698</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
