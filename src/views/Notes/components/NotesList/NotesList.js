@@ -54,11 +54,11 @@ const NotesList = props => {
     ));
 
     useEffect(() => {
-      document.addEventListener('click', () => setVisibleContextMenu(false));
-    }, []);
-
-    const getNotes = props.getNotes;
-    useEffect(getNotes, [getNotes]);
+      window.addEventListener('click', () => {
+        visibleContextMenu && setVisibleContextMenu(false);
+      });
+      return () => visibleContextMenu && setVisibleContextMenu(false);
+    });
 
     return (
       <Col span={4} className={styles.notes__list} style={{height: '100%'}}>
