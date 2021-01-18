@@ -4,13 +4,15 @@ import {Button, Col, Layout, Popover, Row} from 'antd';
 import {connect} from 'react-redux';
 import authActions from '../../utils/auth/authActions';
 import documentsActions from '../../utils/documents/documentsActions';
+import notesActions from '../../utils/notes/notesActions';
 
 const Header = props => {
   const [visible, setVisible] = useState(false);
 
   const handleLogout = async event => {
     event.preventDefault();
-    await props.logout() && props.clear();
+    console.log(props.logout())
+    await props.logout();
   };
 
   return (
@@ -45,7 +47,8 @@ export default connect(
   },
   dispatch => ({
     logout: () => authActions.logout().then(result => dispatch(result)),
-    clear: () => documentsActions.clear().then(result => dispatch(result))
+    clearFiles: () => documentsActions.clear().then(result => dispatch(result)),
+    clearNotes: () => notesActions.clear().then(result => dispatch(result))
   })
 )
 (Header);

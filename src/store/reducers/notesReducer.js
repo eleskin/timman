@@ -2,6 +2,7 @@ const ADD_NOTE = 'ADD_NOTE';
 const SET_NOTES = 'SET_NOTES';
 const SET_NOTE = 'SET_NOTE';
 const REMOVE_NOTE = 'REMOVE_NOTE';
+const CLEAR_NOTES = 'CLEAR_NOTES';
 
 const initialState = {
   notes: [],
@@ -22,6 +23,8 @@ const documentsReducer = (state = initialState, action) => {
         state.notes.filter(note => note.id === action.id)[0].value = action.value;
       }
       return {...state, noteValue: action.value, noteTitle: action.title};
+    case CLEAR_NOTES:
+      return state
     default:
       return state;
   }

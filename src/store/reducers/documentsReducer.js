@@ -16,7 +16,7 @@ const documentsReducer = (state = initialState, action) => {
     case REMOVE_FILE:
       return {...state, documents: [...state.documents.filter(item => item.id !== action.index)]};
     case CLEAR_FILES:
-      return {documents: []};
+      return state;
     default:
       return state;
   }

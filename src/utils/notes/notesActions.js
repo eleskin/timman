@@ -1,4 +1,4 @@
-import {create, getNotes, getNoteValue, save, remove} from './index';
+import {create, getNotes, getNoteValue, save, remove, clear} from './index';
 
 const notesActions = {
   create: () => create().then(({note}) => ({type: 'ADD_NOTE', note})),
@@ -10,7 +10,8 @@ const notesActions = {
     value,
     title
   })),
-  remove: id => remove(id).then(({id}) => ({type: 'REMOVE_NOTE', id}))
+  remove: id => remove(id).then(({id}) => ({type: 'REMOVE_NOTE', id})),
+  clear: () => clear().then(() => ({type: 'CLEAR_NOTES'}))
 };
 
 export default notesActions;

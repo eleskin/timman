@@ -8,5 +8,12 @@ const reducers = combineReducers({
   documentsReducer,
   notesReducer
 });
+const rootReducer = (state, action) => {
+  if (action.type === 'LOG_OUT') {
+    state = undefined;
+  }
 
-export default reducers;
+  return reducers(state, action);
+};
+
+export default rootReducer;

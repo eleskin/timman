@@ -80,3 +80,5 @@ export const remove = id => {
     } : false;
   })(id);
 };
+
+export const clear = () => (async () => true)();
