@@ -19,12 +19,26 @@ const Login = props => {
     <div className={styles.login}>
       <div className={styles.login__wrapper}>
         <Row>
-          <Col span={6} offset={9}>
+          <Col
+            xxl={{span: 4, offset: 10}}
+            xl={{span: 6, offset: 9}}
+            lg={{span: 8, offset: 8}}
+            md={{span: 10, offset: 7}}
+            sm={{span: 14, offset: 5}}
+            xs={{span: 24, offset: 0}}
+          >
             <Title level={3}>Sign in</Title>
           </Col>
         </Row>
         <Row>
-          <Col span={6} offset={9}>
+          <Col
+            xxl={{span: 4, offset: 10}}
+            xl={{span: 6, offset: 9}}
+            lg={{span: 8, offset: 8}}
+            md={{span: 10, offset: 7}}
+            sm={{span: 14, offset: 5}}
+            xs={{span: 24, offset: 0}}
+          >
             <Form
               name="normal_login"
               className="login-form"
@@ -53,9 +67,9 @@ const Login = props => {
                     <Checkbox>Remember me</Checkbox>
                   </Form.Item>
 
-                  <Link className="login-form-forgot" to="">
-                    Forgot password
-                  </Link>
+                  {/*<Link className="login-form-forgot" to="">*/}
+                  {/*  Forgot password*/}
+                  {/*</Link>*/}
                 </Row>
               </Form.Item>
 

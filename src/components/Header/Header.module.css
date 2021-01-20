@@ -8,3 +8,15 @@
     font-weight: 600;
     font-size: 16px;
 }
+
+.header__logo {
+    color: #ffffff;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    font-size: 16px;
+}
+
+.header__logo:hover {
+    color: #ffffff;
+}

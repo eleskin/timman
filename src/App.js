@@ -1,7 +1,8 @@
 import React from 'react';
-import './App.css'
+import './App.css';
 import 'antd/dist/antd.css';
 import {BrowserRouter, Switch} from 'react-router-dom';
+import {useMediaQuery} from 'react-responsive';
 import {connect} from 'react-redux';
 import PrivateRoute from './auth/PrivateRoute';
 import PublicRoute from './auth/PublicRoute';
@@ -20,14 +21,15 @@ const {Content} = Layout;
 
 const App = props => {
   const {auth} = props;
+  const isMobile = useMediaQuery({ query: '(min-width: 576px)' })
 
   return (
     <div className="App">
       <BrowserRouter>
         <Layout style={{minHeight: '100vh'}}>
-          <Sidebar auth={auth}/>
+          {isMobile && <Sidebar auth={auth}/>}
           <Layout className="site-layout">
-            {auth && <Header/>}
+            <Header auth={auth}/>
             <Content style={{margin: '0.5rem'}}>
               <Switch>
                 <PublicRoute auth={auth} exact path="/login" component={Login}/>

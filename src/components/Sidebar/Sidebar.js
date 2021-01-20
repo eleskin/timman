@@ -8,7 +8,7 @@ const Sidebar = props => {
   const location = useLocation();
 
   return (
-    <Layout.Sider collapsed={true}>
+    <Layout.Sider className={styles.sidebar} collapsed={true}>
       <div className={`${styles.sidebar__logo} ${styles.sidebar__logo__collapsed_true}`}>
         <Link to="/home">Timman</Link>
       </div>

@@ -5,20 +5,25 @@ import {connect} from 'react-redux';
 import authActions from '../../utils/auth/authActions';
 import documentsActions from '../../utils/documents/documentsActions';
 import notesActions from '../../utils/notes/notesActions';
+import {useMediaQuery} from 'react-responsive';
+import {Link} from 'react-router-dom';
 
 const Header = props => {
   const [visible, setVisible] = useState(false);
+  const isMobile = useMediaQuery({query: '(min-width: 576px)'});
 
   const handleLogout = async event => {
     event.preventDefault();
-    console.log(props.logout())
     await props.logout();
   };
 
   return (
     <header className={styles.header}>
       <Layout.Header className={`site-layout-background ${styles.header__container}`}>
-        <Row justify="end">
+        <Row justify="space-between">
+          <Col>
+            {!isMobile && <Link to="/" className={styles.header__logo}>Timman</Link>}
+          </Col>
           <Col>
             <Popover
               placement="bottomRight"

@@ -19,12 +19,26 @@ const Register = props => {
     <div className={styles.register}>
       <div className={styles.register__wrapper}>
         <Row>
-          <Col span={6} offset={9}>
+          <Col
+            xxl={{span: 4, offset: 10}}
+            xl={{span: 6, offset: 9}}
+            lg={{span: 8, offset: 8}}
+            md={{span: 10, offset: 7}}
+            sm={{span: 14, offset: 5}}
+            xs={{span: 24, offset: 0}}
+          >
             <Title level={3}>Sign up</Title>
           </Col>
         </Row>
         <Row>
-          <Col span={6} offset={9}>
+          <Col
+            xxl={{span: 4, offset: 10}}
+            xl={{span: 6, offset: 9}}
+            lg={{span: 8, offset: 8}}
+            md={{span: 10, offset: 7}}
+            sm={{span: 14, offset: 5}}
+            xs={{span: 24, offset: 0}}
+          >
             <Form
               name="normal_register"
               className="register-form"
