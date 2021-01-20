@@ -61,7 +61,16 @@ const NotesList = props => {
     });
 
     return (
-      <Col span={4} className={styles.notes__list} style={{height: '100%'}}>
+      <Col
+        xxl={{span: 3}}
+        xl={{span: 4}}
+        lg={{span: 4}}
+        md={{span: 6}}
+        sm={{span: 8}}
+        xs={{span: 10}}
+        className={styles.notes__list}
+        style={{height: '100%'}}
+      >
         <Button
           type="primary"
           shape="round"

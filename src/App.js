@@ -11,6 +11,7 @@ import Home from './views/Home/Home';
 import Login from './views/Login/Login';
 import Register from './views/Register/Register';
 import Sidebar from './components/Sidebar/Sidebar';
+import Footer from './components/Footer/Footer';
 import Documents from './views/Documents/Documents';
 // import Settings from './views/Settings/Settings';
 import {Layout} from 'antd';
@@ -29,7 +30,7 @@ const App = props => {
         <Layout style={{minHeight: '100vh'}}>
           {isMobile && <Sidebar auth={auth}/>}
           <Layout className="site-layout">
-            <Header auth={auth}/>
+            <Header/>
             <Content style={{margin: '0.5rem'}}>
               <Switch>
                 <PublicRoute auth={auth} exact path="/login" component={Login}/>
@@ -45,6 +46,7 @@ const App = props => {
                 <NullRoute auth={auth}/>
               </Switch>
             </Content>
+            {!isMobile && <Footer/>}
           </Layout>
         </Layout>
       </BrowserRouter>

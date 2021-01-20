@@ -22,7 +22,15 @@ const Documents = (props) => {
   useEffect(getFiles, [getFiles]);
 
   const documentsList = props.documents.map((document, index) => (
-    <Col md={6} key={index}>
+    <Col
+      xxl={{span: 3}}
+      xl={{span: 4}}
+      lg={{span: 6}}
+      md={{span: 8}}
+      sm={{span: 12}}
+      xs={{span: 12}}
+      key={index}
+    >
       <Card
         actions={[
           <DownloadOutlined onClick={event => handleDownload(event, document.id, document.title)}/>,

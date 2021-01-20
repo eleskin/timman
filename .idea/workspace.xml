@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.5.4">
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.6.0">
+      <change afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header/Header.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Header/Header.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header/Header.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Register/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Register/Register.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Documents/Documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Documents/Documents.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,8 +19,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="CSS File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -155,14 +152,7 @@
       <workItem from="1611006668195" duration="834000" />
       <workItem from="1611058978514" duration="10000" />
       <workItem from="1611081312108" duration="8000" />
-      <workItem from="1611169183714" duration="2580000" />
-    </task>
-    <task id="LOCAL-00002" summary="commit">
-      <created>1607776628105</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1607776628105</updated>
+      <workItem from="1611169183714" duration="5930000" />
     </task>
     <task id="LOCAL-00003" summary="commit">
       <created>1607782572111</created>
@@ -500,7 +490,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611001950081</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="0.6.0">
+      <created>1611172269085</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1611172269086</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -532,6 +529,7 @@
     <MESSAGE value="0.5.2" />
     <MESSAGE value="0.5.2.1" />
     <MESSAGE value="0.5.4" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.5.4" />
+    <MESSAGE value="0.6.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.6.0" />
   </component>
 </project>

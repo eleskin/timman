@@ -6,7 +6,16 @@ const {TextArea} = Input;
 
 const NotesEditor = props => {
   return (
-    <Col span={20} className={styles.notes__body} style={{height: '100%'}}>
+    <Col
+      xxl={{span: 21}}
+      xl={{span: 20}}
+      lg={{span: 20}}
+      md={{span: 18}}
+      sm={{span: 16}}
+      xs={{span: 14}}
+      className={styles.notes__body}
+      style={{height: '100%'}}
+    >
       {
         props.visibleInput
         &&

@@ -57,14 +57,28 @@ const Home = props => {
   return (
     <div>
       <Row gutter={[16, 16]}>
-        <Col md={6}>
+        <Col
+          xxl={{span: 4}}
+          xl={{span: 6}}
+          lg={{span: 8}}
+          md={{span: 10}}
+          sm={{span: 12}}
+          xs={{span: 24}}
+        >
           <Row justify="space-between">
             <Title level={3}>Notes</Title>
             <Link to="/notes">See all</Link>
           </Row>
           <div>{notesList.length ? notesList : <Empty/>}</div>
         </Col>
-        <Col md={6}>
+        <Col
+          xxl={{span: 4}}
+          xl={{span: 6}}
+          lg={{span: 8}}
+          md={{span: 10}}
+          sm={{span: 12}}
+          xs={{span: 24}}
+        >
           <Row justify="space-between">
             <Title level={3}>Documents</Title>
             <Link to="/documents">See all</Link>
