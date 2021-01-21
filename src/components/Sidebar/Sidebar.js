@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './Sidebar.module.css';
 import {Link, useLocation} from 'react-router-dom';
 import {Layout, Menu} from 'antd';
-import {FileOutlined, HomeOutlined, BarsOutlined} from '@ant-design/icons';
+import {FileOutlined, HomeOutlined, BarsOutlined, UserOutlined} from '@ant-design/icons';
 
 const Sidebar = props => {
   const location = useLocation();
@@ -25,9 +25,9 @@ const Sidebar = props => {
           <Menu.Item key="/documents" icon={<FileOutlined/>} className={styles.sidebar__link} title="Documents">
             <Link to="/documents">Documents</Link>
           </Menu.Item>
-          {/*<Menu.Item key="/settings" icon={<SettingOutlined/>} className={styles.sidebar__link}>*/}
-          {/*  <Link to="/settings">Settings</Link>*/}
-          {/*</Menu.Item>*/}
+          <Menu.Item key="/settings" icon={<UserOutlined/>} className={styles.sidebar__link}>
+            <Link to="/settings">Settings</Link>
+          </Menu.Item>
         </Menu>
       }
     </Layout.Sider>
