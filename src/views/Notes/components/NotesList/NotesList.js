@@ -23,6 +23,7 @@ const NotesList = props => {
     const handleSelect = async (event, id) => {
       await props.getNoteValue(id);
       props.setNoteValue(store.getState().notesReducer.noteValue);
+      props.setNoteTitle(store.getState().notesReducer.noteTitle);
       props.setVisibleInput(true);
     };
 

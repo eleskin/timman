@@ -1,10 +1,29 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import styles from '../../Notes.module.css';
 import {Col, Input} from 'antd';
-
-const {TextArea} = Input;
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const NotesEditor = props => {
+  const [title, setTitle] = useState('');
+  const [value, setValue] = useState('');
+
+  const onSetTitle = (title, id) => {
+    setTitle(title);
+    props.handleChange(title, props.noteValue, id);
+  };
+
+  const onSetValue = (value, id) => {
+    setValue(value);
+    props.handleChange(props.noteTitle, value, id);
+  };
+
+  useEffect(() => {
+    setTitle(props.noteTitle);
+    setValue(props.noteValue);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [props.noteTitle, props.noteValue]);
+
   return (
     <Col
       xxl={{span: 21}}
@@ -19,13 +38,19 @@ const NotesEditor = props => {
       {
         props.visibleInput
         &&
-        <TextArea
-          placeholder="Enter text"
-          className={styles.notes__text}
-          style={{height: '100%', resize: 'none'}}
-          value={props.noteValue}
-          onChange={event => props.handleChange(event, props.id)}
-        />
+        <>
+          <Input
+            placeholder="Enter title"
+            value={title}
+            onChange={event => onSetTitle(event.target.value, props.id)}
+          />
+          <ReactQuill
+            theme="snow"
+            value={value}
+            onChange={value => onSetValue(value, props.id)}
+            style={{height: '100%', resize: 'none', backgroundColor: '#ffffff'}}
+          />
+        </>
       }
     </Col>
   );

@@ -24,18 +24,21 @@ const Header = props => {
           {!isMobile && <Link to="/" className={styles.header__logo}>Timman</Link>}
         </Col>
         <Col>
-          <Popover
-            placement="bottomRight"
-            content={
-              <Button onClick={handleLogout}>Logout</Button>
-            }
-            title={props.name}
-            trigger="click"
-            visible={visible}
-            onVisibleChange={setVisible}
-          >
+          {isMobile ?
+            < Popover
+              placement='bottomRight'
+              content={
+                <Button onClick={handleLogout}>Logout</Button>
+              }
+              title={props.name}
+              trigger='click'
+              visible={visible}
+              onVisibleChange={setVisible}
+            >
+              <span className={styles.header__profile}>{props.name}</span>
+            </Popover> :
             <span className={styles.header__profile}>{props.name}</span>
-          </Popover>
+          }
         </Col>
       </Row>
     </Layout.Header>
