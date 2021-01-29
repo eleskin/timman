@@ -38,6 +38,6 @@ const TodoList = props => {
 export default connect(
   null,
   dispatch => ({
-    save: () => todoActions.save().then(result => dispatch(result))
+    save: value => todoActions.save(value).then(result => dispatch(result))
   })
 )(TodoList);

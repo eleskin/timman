@@ -13,8 +13,6 @@ export const save = value => {
       }
     });
 
-    console.log(response);
-
-    return response.status === 201 ? {note: response.data} : false;
+    return response.status === 201 ? {task: response.data.task} : false;
   })(value);
 };

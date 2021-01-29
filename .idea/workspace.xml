@@ -1,15 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.6.1">
-      <change afterPath="$PROJECT_DIR$/src/utils/todo/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utils/todo/todoActions.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" afterDir="false" />
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.0">
+      <change afterPath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Footer/Footer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Footer/Footer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sidebar/Sidebar.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/reducers.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/todo/todoActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/todoActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,14 +159,7 @@
       <workItem from="1611669379639" duration="7121000" />
       <workItem from="1611684754393" duration="345000" />
       <workItem from="1611685182640" duration="29000" />
-      <workItem from="1611924575143" duration="2995000" />
-    </task>
-    <task id="LOCAL-00006" summary="commit">
-      <created>1607868862245</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1607868862245</updated>
+      <workItem from="1611924575143" duration="4444000" />
     </task>
     <task id="LOCAL-00007" summary="commit">
       <created>1607878393587</created>
@@ -506,7 +497,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611684443761</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="0.7.0">
+      <created>1611927715675</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1611927715676</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -540,6 +538,7 @@
     <MESSAGE value="0.5.4" />
     <MESSAGE value="0.6.0" />
     <MESSAGE value="0.6.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.6.1" />
+    <MESSAGE value="0.7.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.7.0" />
   </component>
 </project>
