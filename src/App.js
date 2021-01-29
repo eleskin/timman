@@ -18,6 +18,7 @@ import {Layout} from 'antd';
 import Header from './components/Header/Header';
 import Notes from './views/Notes/Notes';
 import Settings from './views/Settings/Settings';
+import TodoList from './views/TodoList/TodoList';
 
 const {Content} = Layout;
 
@@ -44,6 +45,7 @@ const App = props => {
 
                 <PrivateRoute auth={auth} exact path="/documents" component={Documents}/>
                 <PrivateRoute auth={auth} exact path="/settings" component={Settings}/>
+                <PrivateRoute auth={auth} exact path="/todo" component={TodoList}/>
                 <NullRoute auth={auth}/>
               </Switch>
             </Content>
