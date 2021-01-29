@@ -15,11 +15,19 @@ const TodoList = props => {
     setTaskValue('');
   };
 
+  const handleCheck = (id, index, event) => {
+    props.setSuccess(id, index, event.target.checked);
+  };
+
   const getTasks = props.getTasks;
   useEffect(getTasks, [getTasks]);
 
   const tasksList = props.tasks.map((task, index) => (
-    <li key={index}><Checkbox>{task.value}</Checkbox></li>
+    <li key={index}>
+      <Checkbox onChange={handleCheck.bind(this, task.id, index)} checked={task.success}>
+        {task.value}
+      </Checkbox>
+    </li>
   ));
 
   return (
@@ -34,7 +42,7 @@ const TodoList = props => {
       </Row>
       <Row justify="center">
         <Col md={12}>
-          <ul>
+          <ul style={{listStyle: 'none', padding: 0}}>
             {tasksList}
           </ul>
         </Col>
@@ -51,6 +59,7 @@ export default connect(
   },
   dispatch => ({
     save: value => todoActions.save(value).then(result => dispatch(result)),
-    getTasks: () => todoActions.getTasks().then(result => dispatch(result))
+    getTasks: () => todoActions.getTasks().then(result => dispatch(result)),
+    setSuccess: (id, index, value) => todoActions.setSuccess(id, index, value).then(result => dispatch(result))
   })
 )(TodoList);

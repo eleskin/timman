@@ -29,3 +29,17 @@ export const getTasks = () => {
     return response.status === 200 ? {tasks: [...response.data]} : false;
   })();
 };
+
+export const setSuccess = (id, value) => {
+  return (async (id, value) => {
+    const response = await axios.put(`http://127.0.0.1:8000/api/todo/${id}`, {
+      value,
+    }, {
+      headers: {
+        Authorization: getToken(),
+      }
+    });
+
+    return response.status === 200 ? {task: response.data} : false;
+  })(id, value);
+};
