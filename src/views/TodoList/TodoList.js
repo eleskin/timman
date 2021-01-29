@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, Col, Input, Row} from 'antd';
+import React, {useState, useEffect} from 'react';
+import {Button, Checkbox, Col, Input, Row} from 'antd';
 import {connect} from 'react-redux';
 import todoActions from '../../utils/todo/todoActions';
 
@@ -12,7 +12,15 @@ const TodoList = props => {
 
   const handleClick = () => {
     taskValue && props.save(taskValue);
+    setTaskValue('');
   };
+
+  const getTasks = props.getTasks;
+  useEffect(getTasks, [getTasks]);
+
+  const tasksList = props.tasks.map((task, index) => (
+    <li key={index}><Checkbox>{task.value}</Checkbox></li>
+  ));
 
   return (
     <div>
@@ -27,7 +35,7 @@ const TodoList = props => {
       <Row justify="center">
         <Col md={12}>
           <ul>
-            {/*<li><Checkbox/></li>*/}
+            {tasksList}
           </ul>
         </Col>
       </Row>
@@ -36,8 +44,13 @@ const TodoList = props => {
 };
 
 export default connect(
-  null,
+  state => {
+    const {tasks} = state.todoReducer;
+
+    return {tasks};
+  },
   dispatch => ({
-    save: value => todoActions.save(value).then(result => dispatch(result))
+    save: value => todoActions.save(value).then(result => dispatch(result)),
+    getTasks: () => todoActions.getTasks().then(result => dispatch(result))
   })
 )(TodoList);
