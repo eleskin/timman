@@ -24,7 +24,7 @@ const documentsReducer = (state = initialState, action) => {
       }
       return {...state, noteValue: action.value, noteTitle: action.title};
     case CLEAR_NOTES:
-      return state
+      return state;
     default:
       return state;
   }
