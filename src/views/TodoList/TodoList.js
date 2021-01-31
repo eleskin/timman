@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 import todoActions from '../../utils/todo/todoActions';
 import {DeleteOutlined} from '@ant-design/icons';
 
-const TodoList = props => {
+const TodoList = ({getTasks, remove, save, setSuccess, tasks}) => {
   const [taskValue, setTaskValue] = useState('');
 
   const handleChange = event => {
@@ -12,22 +12,21 @@ const TodoList = props => {
   };
 
   const handleClick = () => {
-    taskValue && props.save(taskValue);
+    taskValue && save(taskValue);
     setTaskValue('');
   };
 
   const handleCheck = (id, index, event) => {
-    props.setSuccess(id, index, event.target.checked);
+    setSuccess(id, index, event.target.checked);
   };
 
   const handleDelete = id => {
-    props.remove(id);
+    remove(id);
   };
 
-  const getTasks = props.getTasks;
   useEffect(getTasks, [getTasks]);
 
-  const tasksList = props.tasks.map((task, index) => (
+  const tasksList = tasks.map((task, index) => (
     <li key={index}>
       <Card
         title={
