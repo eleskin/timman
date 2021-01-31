@@ -4,6 +4,7 @@
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.0">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/todo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/todo/todoActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/todoActions.js" afterDir="false" />
@@ -159,14 +160,8 @@
       <workItem from="1611669379639" duration="7121000" />
       <workItem from="1611684754393" duration="345000" />
       <workItem from="1611685182640" duration="29000" />
-      <workItem from="1611924575143" duration="8769000" />
-    </task>
-    <task id="LOCAL-00009" summary="commit">
-      <created>1608036903238</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1608036903238</updated>
+      <workItem from="1611924575143" duration="9073000" />
+      <workItem from="1612083159229" duration="2651000" />
     </task>
     <task id="LOCAL-00010" summary="commit">
       <created>1608062901095</created>
@@ -504,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1611934657068</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="0.7.0">
+      <created>1611937472940</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1611937472940</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
