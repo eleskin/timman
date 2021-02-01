@@ -4,8 +4,8 @@ import axios from 'axios';
 
 export const save = value => {
   return (async value => {
-    const response = await axios.post('http://127.0.0.1:8000/api/todo/', {
-      user_id: store.getState().authReducer.id,
+    const response = await axios.post('http://127.0.0.1:8000/api/todo', {
+      'user-id': store.getState().authReducer.id,
       value: value
     }, {
       headers: {
@@ -19,10 +19,10 @@ export const save = value => {
 
 export const getTasks = () => {
   return (async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/todo/', {
+    const response = await axios.get('http://127.0.0.1:8000/api/todo', {
       headers: {
         Authorization: getToken(),
-        user_id: store.getState().authReducer.id
+        'user-id': store.getState().authReducer.id
       }
     });
 

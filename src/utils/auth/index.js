@@ -30,8 +30,8 @@ export const authenticate = () => {
   })();
 };
 
-export const register = (data) => {
-  return (async (data) => {
+export const register = data => {
+  return (async data => {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/register', data);
 
     if (response.status === 200) {
@@ -43,8 +43,8 @@ export const register = (data) => {
   })(data);
 };
 
-export const login = (data) => {
-  return (async (data) => {
+export const login = data => {
+  return (async data => {
     const response = await axios.post('http://127.0.0.1:8000/api/auth/login', data);
 
     if (response.status === 200) {

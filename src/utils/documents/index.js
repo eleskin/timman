@@ -14,7 +14,7 @@ export const upload = (data) => {
       data.name
     );
 
-    const response = await axios.post('http://127.0.0.1:8000/api/documents/', formData, {
+    const response = await axios.post('http://127.0.0.1:8000/api/documents', formData, {
       headers: {
         Authorization: getToken()
       }
@@ -26,10 +26,10 @@ export const upload = (data) => {
 
 export const getFiles = () => {
   return (async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/documents/', {
+    const response = await axios.get('http://127.0.0.1:8000/api/documents', {
       headers: {
         Authorization: getToken(),
-        user_id: store.getState().authReducer.id
+        'user-id': store.getState().authReducer.id
       }
     });
 

@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.1">
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/documents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/documents/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/notes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/todo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -156,14 +160,8 @@
       <workItem from="1611684754393" duration="345000" />
       <workItem from="1611685182640" duration="29000" />
       <workItem from="1611924575143" duration="9073000" />
-      <workItem from="1612083159229" duration="3602000" />
-    </task>
-    <task id="LOCAL-00012" summary="commit">
-      <created>1608125063087</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1608125063087</updated>
+      <workItem from="1612083159229" duration="4225000" />
+      <workItem from="1612188171565" duration="664000" />
     </task>
     <task id="LOCAL-00013" summary="commit">
       <created>1608227942461</created>
@@ -501,7 +499,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612086108170</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="0.7.1">
+      <created>1612088585352</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1612088585352</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

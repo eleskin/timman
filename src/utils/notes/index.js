@@ -4,7 +4,7 @@ import store from '../../store/store';
 
 export const create = () => {
   return (async () => {
-    const response = await axios.post('http://127.0.0.1:8000/api/notes/', {
+    const response = await axios.post('http://127.0.0.1:8000/api/notes', {
       user_id: store.getState().authReducer.id,
       title: '',
       value: ''
@@ -20,10 +20,10 @@ export const create = () => {
 
 export const getNotes = () => {
   return (async () => {
-    const response = await axios.get('http://127.0.0.1:8000/api/notes/', {
+    const response = await axios.get('http://127.0.0.1:8000/api/notes', {
       headers: {
         Authorization: getToken(),
-        user_id: store.getState().authReducer.id
+        'user-id': store.getState().authReducer.id
       }
     });
 
@@ -49,7 +49,7 @@ export const getNoteValue = id => {
 
 export const save = (id, value, title) => {
   return (async (id, value, title) => {
-    const response = await axios.put(`http://127.0.0.1:8000/api/notes/`, {
+    const response = await axios.put(`http://127.0.0.1:8000/api/notes`, {
       id,
       value,
       title
