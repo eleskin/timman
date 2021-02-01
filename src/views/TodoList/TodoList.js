@@ -48,15 +48,27 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks}) => {
   return (
     <div>
       <Row justify="center">
-        <Col md={10}>
+        <Col
+          md={{span: 10}}
+          sm={{span: 17}}
+          xs={{span: 18}}
+        >
           <Input placeholder="Add task" value={taskValue} onChange={handleChange} onPressEnter={handleClick}/>
         </Col>
-        <Col md={2}>
+        <Col
+          md={{span: 2}}
+          sm={{span: 3}}
+          xs={{span: 6}}
+        >
           <Button type="primary" onClick={handleClick} style={{width: '100%'}}>Add</Button>
         </Col>
       </Row>
       <Row justify="center">
-        <Col md={12}>
+        <Col
+          md={{span: 12}}
+          sm={{span: 20}}
+          xs={{span: 24}}
+        >
           <ul style={{listStyle: 'none', padding: 0}}>
             {tasksList}
           </ul>

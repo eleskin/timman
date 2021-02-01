@@ -5,7 +5,7 @@ import axios from 'axios';
 export const save = value => {
   return (async value => {
     const response = await axios.post('http://127.0.0.1:8000/api/todo', {
-      'user-id': store.getState().authReducer.id,
+      user_id: store.getState().authReducer.id,
       value: value
     }, {
       headers: {
