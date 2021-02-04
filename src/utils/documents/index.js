@@ -20,7 +20,9 @@ export const upload = (data) => {
       }
     });
 
-    return response.status === 201 ? {documents: [response.data.document]} : false;
+    console.log(response);
+
+    return response.status === 201 ? {documents: [response.data.document], size: response.data.size.toFixed(1)} : false;
   })(data);
 };
 
@@ -33,7 +35,7 @@ export const getFiles = () => {
       }
     });
 
-    return response.status === 200 ? {documents: [...response.data]} : false;
+    return response.status === 200 ? {documents: [...response.data.documents], size: response.data.size.toFixed(1)} : false;
   })();
 };
 
@@ -56,11 +58,12 @@ export const remove = (index) => {
     const response = await axios
       .delete(`http://127.0.0.1:8000/api/documents/${index}`, {
         headers: {
-          Authorization: getToken()
+          Authorization: getToken(),
+          'user-id': store.getState().authReducer.id
         }
       });
 
-    return response.status === 200 ? {index: Number(response.data)} : false;
+    return response.status === 200 ? {index: Number(response.data.id), size: response.data.size.toFixed(1)} : false;
   })(index);
 };
 

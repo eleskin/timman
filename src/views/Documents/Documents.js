@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import {Upload, Row, Col, Card, Empty} from 'antd';
+import {Upload, Row, Col, Card, Empty, Progress} from 'antd';
 import {InboxOutlined, DownloadOutlined, DeleteOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
@@ -48,8 +48,18 @@ const Documents = (props) => {
     <div>
       <Row gutter={[16, 16]}>
         <Col span={24}>
+          <Progress percent={props.size * 10} showInfo={false}/>
+        </Col>
+      </Row>
+      <Row gutter={[16, 16]}>
+        <Col span={24} style={{textAlign: 'center'}}>
+          <span>{props.size} / 10 Mb</span>
+        </Col>
+      </Row>
+      <Row gutter={[16, 16]}>
+        <Col span={24}>
           <Dragger
-            multiple={true}
+            multiple={false}
             showUploadList={false}
             beforeUpload={file => {
               props.upload(file);
@@ -72,9 +82,9 @@ const Documents = (props) => {
 
 export default connect(
   state => {
-    const {documents} = state.documentsReducer;
+    const {documents, size} = state.documentsReducer;
 
-    return {documents};
+    return {documents, size};
   },
   dispatch => ({
     upload: data => documentsActions.upload(data).then(result => dispatch(result)),

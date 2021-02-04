@@ -10,11 +10,11 @@ const initialState = {
 const documentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_FILES:
-      return {...state, documents: [...state.documents, ...action.documents]};
+      return {...state, documents: [...state.documents, ...action.documents], size: action.size};
     case SET_FILES:
-      return {...state, documents: [...action.documents]};
+      return {...state, documents: [...action.documents], size: action.size};
     case REMOVE_FILE:
-      return {...state, documents: [...state.documents.filter(item => item.id !== action.index)]};
+      return {...state, documents: [...state.documents.filter(item => item.id !== action.index)], size: action.size};
     case CLEAR_FILES:
       return state;
     default:
