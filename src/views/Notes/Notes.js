@@ -3,7 +3,7 @@ import styles from './Notes.module.css';
 import {Row} from 'antd';
 import {connect} from 'react-redux';
 import notesActions from '../../utils/notes/notesActions';
-import {useParams} from 'react-router-dom';
+import {useHistory, useParams} from 'react-router-dom';
 import store from '../../store/store';
 import NotesList from './components/NotesList/NotesList';
 import NotesEditor from './components/NotesEditor/NotesEditor';
@@ -16,6 +16,7 @@ const Notes = props => {
   const [menuEnable, setMenuEnable] = useState(true);
 
   const {id} = useParams();
+  const history = useHistory();
 
   const handleChange = (title, value, id) => {
     setMenuEnable(false);
@@ -35,10 +36,13 @@ const Notes = props => {
   useEffect(() => {
     (async () => {
       props.getNotes();
+
+      props.notes.filter(note => note.id === id).length === 0 && history.push("/notes");
+
       await props.getNoteValue(id);
       setNoteValue(store.getState().notesReducer.noteValue);
       setNoteTitle(store.getState().notesReducer.noteTitle);
-      id && setVisibleInput(true);
+      props.notes.filter(note => note.id === id).length !== 0 && setVisibleInput(true);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
