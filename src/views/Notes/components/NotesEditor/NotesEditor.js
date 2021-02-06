@@ -33,7 +33,7 @@ const NotesEditor = props => {
       sm={{span: 16}}
       xs={{span: 14}}
       className={styles.notes__body}
-      style={{height: '100%'}}
+      style={{height: 'auto'}}
     >
       {
         props.visibleInput
