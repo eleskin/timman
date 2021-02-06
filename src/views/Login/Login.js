@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Login.module.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -10,8 +10,10 @@ import {LockOutlined, UserOutlined} from '@ant-design/icons';
 const {Title} = Typography;
 
 const Login = props => {
+  const [errorMessage, setErrorMessage] = useState('');
+
   const onFinish = async values => {
-    await props.login(values);
+    await props.login(values).catch(() => setErrorMessage('Please check your email and password and try again.'));
     await props.getFiles();
   };
 
@@ -66,14 +68,11 @@ const Login = props => {
                   <Form.Item name="remember_me" valuePropName="checked" noStyle>
                     <Checkbox>Remember me</Checkbox>
                   </Form.Item>
-
-                  {/*<Link className="login-form-forgot" to="">*/}
-                  {/*  Forgot password*/}
-                  {/*</Link>*/}
                 </Row>
               </Form.Item>
 
               <Form.Item>
+                <span style={{color: 'red'}}>{errorMessage}</span>
                 <Button type="primary" htmlType="submit" className="login-form-button" block>
                   Log in
                 </Button>

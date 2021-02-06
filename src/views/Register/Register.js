@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from './Register.module.css';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -10,8 +10,10 @@ import {LockOutlined, UserOutlined, MailOutlined} from '@ant-design/icons';
 const {Title} = Typography;
 
 const Register = props => {
+  const [errorMessage, setErrorMessage] = useState('');
+
   const onFinish = async values => {
-    await props.register(values);
+    await props.register(values).catch(() => setErrorMessage('Error. Try again!'));
     await props.getFiles();
   };
 
@@ -71,6 +73,7 @@ const Register = props => {
               </Form.Item>
 
               <Form.Item>
+                <span style={{color: 'red'}}>{errorMessage}</span>
                 <Button type="primary" htmlType="submit" className="login-form-button" block>
                   Create account
                 </Button>

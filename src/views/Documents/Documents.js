@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import {Upload, Row, Col, Card, Empty, Progress} from 'antd';
@@ -8,6 +8,8 @@ const {Dragger} = Upload;
 const {Meta} = Card;
 
 const Documents = (props) => {
+  const [errorMessage, setErrorMessage] = useState('');
+
   const handleDownload = (event, index, name) => {
     event.preventDefault();
     props.download({index, name});
@@ -62,10 +64,11 @@ const Documents = (props) => {
             multiple={false}
             showUploadList={false}
             beforeUpload={file => {
-              props.upload(file);
+              props.upload(file).catch(() => setErrorMessage('File size exceeds free disk space'));
               return false;
             }}
           >
+            <span style={{color: 'red'}}>{errorMessage}</span>
             <p className="ant-upload-drag-icon">
               <InboxOutlined/>
             </p>
