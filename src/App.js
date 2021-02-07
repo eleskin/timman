@@ -29,7 +29,7 @@ const App = props => {
   return (
     <div className="App">
       <BrowserRouter>
-        <Layout style={{minHeight: '100vh', maxHeight: '100vh', height: '100%'}}>
+        <Layout style={{minHeight: '100vh', maxHeight: '100vh', height: '100%', overflowY: 'scroll'}}>
           {isMobile && <Sidebar auth={auth}/>}
           <Layout className="site-layout">
             <Header/>

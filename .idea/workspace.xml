@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.5">
-      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.6">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/auth/authActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/authActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Login/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Login/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,14 +165,9 @@
       <workItem from="1612453750961" duration="4113000" />
       <workItem from="1612561001426" duration="3000" />
       <workItem from="1612628218644" duration="3227000" />
-      <workItem from="1612637362974" duration="859000" />
-    </task>
-    <task id="LOCAL-00018" summary="commit">
-      <created>1608393308351</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1608393308351</updated>
+      <workItem from="1612637362974" duration="1209000" />
+      <workItem from="1612705953599" duration="172000" />
+      <workItem from="1612724271806" duration="183000" />
     </task>
     <task id="LOCAL-00019" summary="commit">
       <created>1608568804532</created>
@@ -513,7 +505,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612632241785</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="0.7.6">
+      <created>1612638522160</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1612638522160</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -553,6 +552,7 @@
     <MESSAGE value="0.7.3" />
     <MESSAGE value="0.7.4" />
     <MESSAGE value="0.7.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.7.5" />
+    <MESSAGE value="0.7.6" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.7.6" />
   </component>
 </project>
