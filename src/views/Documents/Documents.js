@@ -11,11 +11,13 @@ const Documents = (props) => {
   const [errorMessage, setErrorMessage] = useState('');
 
   const handleDownload = (event, index, name) => {
+    setErrorMessage('');
     event.preventDefault();
     props.download({index, name});
   };
 
   const handleRemove = (event, index) => {
+    setErrorMessage('');
     event.preventDefault();
     props.remove(index);
   };
@@ -64,6 +66,7 @@ const Documents = (props) => {
             multiple={false}
             showUploadList={false}
             beforeUpload={file => {
+              setErrorMessage('');
               props.upload(file).catch(() => setErrorMessage('File size exceeds free disk space'));
               return false;
             }}
