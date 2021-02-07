@@ -20,8 +20,6 @@ export const upload = (data) => {
       }
     });
 
-    console.log(response);
-
     return response.status === 201 ? {documents: [response.data.document], size: response.data.size.toFixed(1)} : false;
   })(data);
 };
