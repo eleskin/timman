@@ -30,7 +30,11 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks}) => {
     <li key={index}>
       <Card
         title={
-          <Checkbox onChange={handleCheck.bind(this, task.id, index)} checked={task.success}>
+          <Checkbox
+            onChange={handleCheck.bind(this, task.id, index)}
+            checked={task.success}
+            style={{whiteSpace: 'normal', overflowWrap: 'anywhere', display: 'flex', alignItems: 'center'}}
+          >
             {task.value}
           </Checkbox>
         }
