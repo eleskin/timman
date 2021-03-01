@@ -2,11 +2,12 @@ import {getToken} from '../auth';
 import store from '../../store/store';
 import axios from 'axios';
 
-export const save = value => {
+export const save = (value, order) => {
   return (async value => {
     const response = await axios.post('http://127.0.0.1:8000/api/todo', {
       user_id: store.getState().authReducer.id,
-      value: value
+      value: value,
+      order: order,
     }, {
       headers: {
         Authorization: getToken()
@@ -14,7 +15,7 @@ export const save = value => {
     });
 
     return response.status === 201 ? {task: response.data.task} : false;
-  })(value);
+  })(value, order);
 };
 
 export const getTasks = () => {
@@ -32,7 +33,7 @@ export const getTasks = () => {
 
 export const setSuccess = (id, value) => {
   return (async (id, value) => {
-    const response = await axios.put(`http://127.0.0.1:8000/api/todo/${id}`, {
+    const response = await axios.patch(`http://127.0.0.1:8000/api/todo/${id}`, {
       value,
     }, {
       headers: {
@@ -54,4 +55,21 @@ export const remove = id => {
 
     return response.status === 200 ? {id: Number(response.data)} : false;
   })(id);
+};
+
+// export const changeOrder = (tasks) => new Promise((resolve => resolve(tasks)));
+export const changeOrder = (tasks) => {
+  return (async (tasks) => {
+    const response = await axios.put('http://127.0.0.1:8000/api/todo/', {
+      tasks
+    }, {
+      headers: {
+        Authorization: getToken(),
+      }
+    });
+
+    console.log(response);
+
+    return response.status === 200 ? {tasks: tasks} : false;
+  })(tasks);
 };

@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.6">
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.7.7">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/todo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/todo/todoActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/todoActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/public" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
@@ -49,12 +54,13 @@
     <property name="node.js.selected.package.standard" value="" />
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Stylus" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\public" />
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\store\reducers" />
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\views" />
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\views\Register" />
@@ -172,13 +178,11 @@
       <workItem from="1612724563137" duration="81000" />
       <workItem from="1612725027478" duration="193000" />
       <workItem from="1612987002796" duration="2063000" />
-    </task>
-    <task id="LOCAL-00024" summary="commit">
-      <created>1608923709766</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1608923709766</updated>
+      <workItem from="1613069161555" duration="270000" />
+      <workItem from="1613128636413" duration="55000" />
+      <workItem from="1613128791393" duration="39000" />
+      <workItem from="1614531480418" duration="2970000" />
+      <workItem from="1614591383267" duration="5881000" />
     </task>
     <task id="LOCAL-00025" summary="commit">
       <created>1608933027643</created>
@@ -516,7 +520,14 @@
       <option name="project" value="LOCAL" />
       <updated>1612988500066</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="0.7.7">
+      <created>1613069334411</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1613069334412</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,6 +568,7 @@
     <MESSAGE value="0.7.4" />
     <MESSAGE value="0.7.5" />
     <MESSAGE value="0.7.6" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.7.6" />
+    <MESSAGE value="0.7.7" />
+    <option name="LAST_COMMIT_MESSAGE" value="0.7.7" />
   </component>
 </project>
