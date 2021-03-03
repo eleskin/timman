@@ -20,7 +20,7 @@ export const upload = (data) => {
       }
     });
 
-    return response.status === 201 ? {documents: [response.data.document], size: response.data.size.toFixed(1)} : false;
+    return response.status === 201 ? {documents: [response.data.document], size: response.data.size.toFixed(2)} : false;
   })(data);
 };
 
@@ -33,7 +33,7 @@ export const getFiles = () => {
       }
     });
 
-    return response.status === 200 ? {documents: [...response.data.documents], size: response.data.size.toFixed(1)} : false;
+    return response.status === 200 ? {documents: [...response.data.documents], size: response.data.size.toFixed(2)} : false;
   })();
 };
 
@@ -61,8 +61,42 @@ export const remove = (index) => {
         }
       });
 
-    return response.status === 200 ? {index: Number(response.data.id), size: response.data.size.toFixed(1)} : false;
+    return response.status === 200 ? {index: Number(response.data.id), size: response.data.size.toFixed(2)} : false;
   })(index);
 };
 
 export const clear = () => (async () => true)();
+
+export const share = (id) => {
+  return (async (id) => {
+    const response = await axios
+      .post(`http://127.0.0.1:8000/api/documents/share`, {
+        user_id: store.getState().authReducer.id,
+        id,
+      }, {
+        headers: {
+          Authorization: getToken(),
+        }
+      });
+
+    console.log(response);
+
+    return response.status === 200 ? {} : false;
+  })(id);
+};
+
+export const getShareDocument = (id) => {
+  return (async (id) => {
+    const response = await axios
+      .get(`http://127.0.0.1:8000/api/documents/share/${id}`, {
+        headers: {
+          Authorization: getToken(),
+          'user-id': store.getState().authReducer.id
+        }
+      });
+
+    console.log(response);
+
+    return response.status === 200 ? {} : false;
+  })(id);
+};

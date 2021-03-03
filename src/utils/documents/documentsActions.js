@@ -1,4 +1,4 @@
-import {upload, getFiles, download, remove, clear} from './index';
+import {upload, getFiles, download, remove, clear, share, getShareDocument} from './index';
 
 const documentsActions = {
   upload: data => upload(data).then(({documents, size}) => ({type: 'ADD_FILES', documents, size})),
@@ -15,7 +15,9 @@ const documentsActions = {
       });
   },
   remove: index => remove(index).then(({index, size}) => ({type: 'REMOVE_FILE', index, size})),
-  clear: () => clear().then(() => ({type: 'CLEAR_FILES'}))
+  clear: () => clear().then(() => ({type: 'CLEAR_FILES'})),
+  share: (id) => share(id),
+  getShareDocument: (id) => getShareDocument(id)
 };
 
 export default documentsActions;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import 'antd/dist/antd.css';
-import {BrowserRouter, Switch} from 'react-router-dom';
+import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {useMediaQuery} from 'react-responsive';
 import {connect} from 'react-redux';
 import PrivateRoute from './auth/PrivateRoute';
@@ -13,6 +13,7 @@ import Register from './views/Register/Register';
 import Sidebar from './components/Sidebar/Sidebar';
 import Footer from './components/Footer/Footer';
 import Documents from './views/Documents/Documents';
+import Document from './views/Document/Document';
 // import Settings from './views/Settings/Settings';
 import {Layout} from 'antd';
 import Header from './components/Header/Header';
@@ -44,7 +45,10 @@ const App = props => {
                 <PrivateRoute auth={auth} exact path="/notes/:id" component={Notes}/>
 
                 <PrivateRoute auth={auth} exact path="/documents" component={Documents}/>
+                <Route auth={auth} exact path="/documents/:id" component={Document}/>
+
                 <PrivateRoute auth={auth} exact path="/settings" component={Settings}/>
+
                 <PrivateRoute auth={auth} exact path="/todo" component={TodoList}/>
                 <NullRoute auth={auth}/>
               </Switch>

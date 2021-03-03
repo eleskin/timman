@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import {Upload, Row, Col, Card, Empty, Progress} from 'antd';
+import {Upload, Row, Col, Card, Empty, Progress, Button} from 'antd';
 import {InboxOutlined, DownloadOutlined, DeleteOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
@@ -25,6 +25,10 @@ const Documents = (props) => {
   const getFiles = props.getFiles;
   useEffect(getFiles, [getFiles]);
 
+  const handleShare = (event, id) => {
+    props.share(id);
+  };
+
   const documentsList = props.documents.map((document, index) => (
     <Col
       xxl={{span: 3}}
@@ -44,6 +48,7 @@ const Documents = (props) => {
         <Meta
           title={document.title}
         />
+        <Button type="link" style={{padding: '8px 0'}} onClick={(event) => handleShare(event, document.id)}>Share</Button>
       </Card>
     </Col>
   ));
@@ -96,7 +101,8 @@ export default connect(
     upload: data => documentsActions.upload(data).then(result => dispatch(result)),
     getFiles: () => documentsActions.getFiles().then(result => dispatch(result)),
     download: data => documentsActions.download(data),
-    remove: index => documentsActions.remove(index).then(result => dispatch(result))
+    remove: index => documentsActions.remove(index).then(result => dispatch(result)),
+    share: (id) => documentsActions.share(id)
   })
 )
 (Documents);
