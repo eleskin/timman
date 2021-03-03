@@ -2,9 +2,9 @@ import React, {useState, useEffect} from 'react';
 import {Button, Card, Checkbox, Col, Input, Row} from 'antd';
 import {connect} from 'react-redux';
 import todoActions from '../../utils/todo/todoActions';
-import {DeleteOutlined, DragOutlined} from '@ant-design/icons';
+import {DeleteOutlined, DragOutlined, EditOutlined, SaveOutlined} from '@ant-design/icons';
 
-const TodoList = ({getTasks, remove, save, setSuccess, tasks, changeOrder}) => {
+const TodoList = ({getTasks, remove, save, update, tasks, changeOrder}) => {
   const [taskValue, setTaskValue] = useState('');
 
   useEffect(getTasks, [getTasks]);
@@ -18,8 +18,14 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks, changeOrder}) => {
     setTaskValue('');
   };
 
-  const handleCheck = (id, index, event) => {
-    setSuccess(id, index, event.target.checked);
+
+  const [editTaskId, setEditTaskId] = useState(null);
+  const [editValue, setEditValue] = useState(null);
+
+  const handleCheck = (id, index, value, checked) => {
+    update(id, index, value, checked);
+    setEditTaskId(null);
+    setEditValue(null);
   };
 
   const handleDelete = id => {
@@ -69,6 +75,11 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks, changeOrder}) => {
     return cardA.order > cardB.order ? 1 : -1;
   };
 
+  const handleChangeItem = (id, value) => {
+    setEditTaskId(id);
+    setEditValue(value);
+  };
+
   const tasksListItems = tasks.sort(sortTasks).map((task, index) => (
     <li
       key={index}
@@ -99,18 +110,35 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks, changeOrder}) => {
           paddingLeft: '8px'
         }}
         title={
+          <div style={{display: 'flex', alignItems: 'center', whiteSpace: 'normal', overflowWrap: 'anywhere'}}>
           <Checkbox
-            onChange={handleCheck.bind(this, task.id, index)}
+            onChange={(event) => handleCheck(task.id, index, task.value, event.target.checked)}
             checked={task.success}
-            style={{whiteSpace: 'normal', overflowWrap: 'anywhere', display: 'flex', alignItems: 'center'}}
-          >
-            {task.value}
-          </Checkbox>
+            style={{marginRight: '10px'}}
+          />
+            {
+              !(editTaskId === task.id)
+                ?
+              task.value
+                :
+              <div style={{display: 'flex', flexWrap: 'nowrap'}}>
+                <Input value={editValue} onChange={(event) => setEditValue(event.target.value)}/>
+                <Button type="primary" onClick={handleCheck.bind(this, task.id, index, editValue, task.success)}>
+                  <SaveOutlined/>
+                </Button>
+              </div>
+            }
+          </div>
         }
         extra={
-          <Button type="primary" danger onClick={handleDelete.bind(this, task.id)}>
-            <DeleteOutlined/>
-          </Button>
+          <>
+            <Button type="primary" onClick={handleChangeItem.bind(this, task.id, task.value)}>
+              <EditOutlined/>
+            </Button>
+            <Button type="primary" danger onClick={handleDelete.bind(this, task.id)}>
+              <DeleteOutlined/>
+            </Button>
+          </>
         }
         key={index}
         bodyStyle={{display: 'none'}}
@@ -160,8 +188,8 @@ export default connect(
   dispatch => ({
     save: (value, order) => todoActions.save(value, order).then(result => dispatch(result)),
     getTasks: () => todoActions.getTasks().then(result => dispatch(result)),
-    setSuccess: (id, index, value) => todoActions.setSuccess(id, index, value).then(result => dispatch(result)),
+    update: (id, index, value, valueSuccess) => todoActions.update(id, index, value, valueSuccess).then(result => dispatch(result)),
     remove: id => todoActions.remove(id).then(result => dispatch(result)),
-    changeOrder: (taskA, taskB) => todoActions.changeOrder(taskA, taskB).then(result => dispatch(result))
+    changeOrder: (taskA, taskB) => todoActions.changeOrder(taskA, taskB).then(result => dispatch(result)),
   })
 )(TodoList);

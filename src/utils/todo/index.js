@@ -31,18 +31,21 @@ export const getTasks = () => {
   })();
 };
 
-export const setSuccess = (id, value) => {
-  return (async (id, value) => {
+export const update = (id, value, valueSuccess) => {
+  return (async (id, value, valueSuccess) => {
     const response = await axios.patch(`http://127.0.0.1:8000/api/todo/${id}`, {
-      value,
+      valueSuccess,
+      value
     }, {
       headers: {
         Authorization: getToken(),
       }
     });
 
+    console.log(response);
+
     return response.status === 200 ? {task: response.data} : false;
-  })(id, value);
+  })(id, value, valueSuccess);
 };
 
 export const remove = id => {

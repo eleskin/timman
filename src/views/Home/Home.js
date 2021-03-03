@@ -1,10 +1,9 @@
 import React, {useEffect} from 'react';
-// import {Col, Container, Row} from 'react-bootstrap';
 import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
 import {Button, Card, Col, Empty, Row, Typography} from 'antd';
-import {DownloadOutlined, FileTextOutlined, EditOutlined} from '@ant-design/icons';
+import {DownloadOutlined, FileTextOutlined} from '@ant-design/icons';
 import notesActions from '../../utils/notes/notesActions';
 import todoActions from '../../utils/todo/todoActions';
 
@@ -60,15 +59,6 @@ const Home = props => {
   const taskList = props.tasks.slice(0, 3).map((task, index) => (
     <Card
       title={task.value}
-      extra={
-        <Link to={`/todo`}>
-          <Button
-            type="primary"
-            icon={<EditOutlined />}
-          >
-          </Button>
-        </Link>
-      }
       key={index}
       bodyStyle={{display: 'none'}}
     />

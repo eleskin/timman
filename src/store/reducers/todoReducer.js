@@ -16,6 +16,7 @@ const todoReducer = (state = initialState, action) => {
       return {...state, tasks: [...action.tasks]};
     case SET_TASK:
       state.tasks[action.index].success = action.task.success;
+      state.tasks[action.index].value = action.task.value;
       return {...state, tasks: [...state.tasks]};
     case REMOVE_TASK:
       return {...state, tasks: [...state.tasks.filter(item => item.id !== action.id)]};
