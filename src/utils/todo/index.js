@@ -57,19 +57,18 @@ export const remove = id => {
   })(id);
 };
 
-// export const changeOrder = (tasks) => new Promise((resolve => resolve(tasks)));
-export const changeOrder = (tasks) => {
-  return (async (tasks) => {
+export const changeOrder = (taskA, taskB) => {
+  return (async (taskA, taskB) => {
     const response = await axios.put('http://127.0.0.1:8000/api/todo/', {
-      tasks
+      taskA,
+      taskB
     }, {
       headers: {
         Authorization: getToken(),
+        'user-id': store.getState().authReducer.id
       }
     });
 
-    console.log(response);
-
-    return response.status === 200 ? {tasks: tasks} : false;
-  })(tasks);
+    return response.status === 200 ? {tasks: response.data} : false;
+  })(taskA, taskB);
 };

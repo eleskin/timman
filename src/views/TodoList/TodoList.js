@@ -26,27 +26,30 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks, changeOrder}) => {
     remove(id);
   };
 
-  const handleChangeOrder = (tasks) => {
-    changeOrder(tasks);
+  const getChangeTasks = (listA, listB) => {
+    if (listA.length !== listB.length) return {};
+    return listA.filter((item, i) => item !== listB[i] && item);
+  };
+
+  const handleChangeOrder = (tasksList) => {
+    changeOrder(getChangeTasks(tasks, tasksList)[0], getChangeTasks(tasks, tasksList)[1]);
   };
 
   const [currentCard, setCurrentCard] = useState(null);
 
   const handleDragStart = (event, task) => {
     setCurrentCard(task);
-  }
+  };
 
-  const handleDragLeave = (event) => {
-    console.log(event);
-  }
+  const handleDragLeave = () => {};
 
-  const handleDragEnd = (event) => {
-    console.log(event);
-  }
+  const handleDragEnd = () => {
+    setCurrentCard(null);
+  };
 
   const handleDragOver = (event) => {
     event.preventDefault();
-  }
+  };
 
   const handleDrop = (event, task) => {
     event.preventDefault();
@@ -60,7 +63,7 @@ const TodoList = ({getTasks, remove, save, setSuccess, tasks, changeOrder}) => {
       return taskItem;
     }));
     setCurrentCard(null);
-  }
+  };
 
   const sortTasks = (cardA, cardB) => {
     return cardA.order > cardB.order ? 1 : -1;
@@ -159,6 +162,6 @@ export default connect(
     getTasks: () => todoActions.getTasks().then(result => dispatch(result)),
     setSuccess: (id, index, value) => todoActions.setSuccess(id, index, value).then(result => dispatch(result)),
     remove: id => todoActions.remove(id).then(result => dispatch(result)),
-    changeOrder: (tasks) => todoActions.changeOrder(tasks).then(result => dispatch(result))
+    changeOrder: (taskA, taskB) => todoActions.changeOrder(taskA, taskB).then(result => dispatch(result))
   })
 )(TodoList);
