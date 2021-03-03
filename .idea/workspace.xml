@@ -5,10 +5,7 @@
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/todoReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/todo/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/todo/todoActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/todo/todoActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/TodoList/TodoList.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -183,14 +180,8 @@
       <workItem from="1613128791393" duration="39000" />
       <workItem from="1614531480418" duration="2970000" />
       <workItem from="1614591383267" duration="7255000" />
-      <workItem from="1614770685433" duration="7559000" />
-    </task>
-    <task id="LOCAL-00027" summary="commit">
-      <created>1609008673524</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1609008673524</updated>
+      <workItem from="1614770685433" duration="7763000" />
+      <workItem from="1614799205501" duration="300000" />
     </task>
     <task id="LOCAL-00028" summary="commit">
       <created>1609012753125</created>
@@ -528,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614773108108</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="0.7.8">
+      <created>1614778429593</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1614778429593</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

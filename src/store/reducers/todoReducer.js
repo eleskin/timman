@@ -15,9 +15,14 @@ const todoReducer = (state = initialState, action) => {
     case SET_TASKS:
       return {...state, tasks: [...action.tasks]};
     case SET_TASK:
-      state.tasks[action.index].success = action.task.success;
-      state.tasks[action.index].value = action.task.value;
-      return {...state, tasks: [...state.tasks]};
+      const tasks = state.tasks.map((task) => {
+        if (task.id === action.task.id) {
+          task.success = action.task.success;
+          task.value = action.task.value;
+        }
+        return task;
+      });
+      return {...state, tasks: [...tasks]};
     case REMOVE_TASK:
       return {...state, tasks: [...state.tasks.filter(item => item.id !== action.id)]};
     case CHANGE_ORDER:

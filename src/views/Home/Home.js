@@ -56,7 +56,11 @@ const Home = props => {
     />
   ));
 
-  const taskList = props.tasks.slice(0, 3).map((task, index) => (
+  const sortTasks = (cardA, cardB) => {
+    return cardA.order > cardB.order ? 1 : -1;
+  };
+
+  const taskList = props.tasks.sort(sortTasks).slice(0, 3).map((task, index) => (
     <Card
       title={task.value}
       key={index}
