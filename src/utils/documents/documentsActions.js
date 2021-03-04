@@ -1,4 +1,4 @@
-import {upload, getFiles, download, remove, clear, share, getShareDocument} from './index';
+import {upload, getFiles, download, remove, clear, share, getShareDocument, downloadShareDocument} from './index';
 
 const documentsActions = {
   upload: data => upload(data).then(({documents, size}) => ({type: 'ADD_FILES', documents, size})),
@@ -18,7 +18,19 @@ const documentsActions = {
   clear: () => clear().then(() => ({type: 'CLEAR_FILES'})),
   share: (id) => share(id),
   getShareDocument: (id) => {
-    return getShareDocument(id).then(({document}) => ({type: 'SET_FILE', document})).catch(() => ({type: 'NULL_FILE'}))
+    return getShareDocument(id).then(({document}) => document).catch(() => ({type: 'NULL_FILE'}))
+  },
+  downloadShareDocument: (hash) => {
+    return downloadShareDocument(hash)
+      .then(response => {
+        const url = window.URL.createObjectURL(new Blob([response.data]));
+        const link = document.createElement('a');
+        const splited = atob(hash).split('/');
+        link.href = url;
+        link.setAttribute('download', splited[splited.length - 1]);
+        document.body.appendChild(link);
+        link.click();
+    });
   }
 };
 

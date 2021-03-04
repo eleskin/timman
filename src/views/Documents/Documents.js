@@ -1,8 +1,8 @@
 import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
-import {Upload, Row, Col, Card, Empty, Progress, Button} from 'antd';
-import {InboxOutlined, DownloadOutlined, DeleteOutlined} from '@ant-design/icons';
+import {Upload, Row, Col, Card, Empty, Progress, Button, Popover, message} from 'antd';
+import {InboxOutlined, DownloadOutlined, DeleteOutlined, CopyOutlined} from '@ant-design/icons';
 
 const {Dragger} = Upload;
 const {Meta} = Card;
@@ -25,8 +25,18 @@ const Documents = (props) => {
   const getFiles = props.getFiles;
   useEffect(getFiles, [getFiles]);
 
+  const [documentName, setDocumentName] = useState('');
+
   const handleShare = (event, id) => {
-    props.share(id);
+    props.share(id).then(response => setDocumentName(response));
+  };
+
+  const [visible, setVisible] = useState(false);
+
+  const handeCopyToClipboard = () => {
+    navigator.clipboard.writeText(`${window.location.href}/${documentName}`);
+    message.success('Copied!');
+    setVisible(false);
   };
 
   const documentsList = props.documents.map((document, index) => (
@@ -48,7 +58,23 @@ const Documents = (props) => {
         <Meta
           title={document.title}
         />
-        <Button type="link" style={{padding: '8px 0'}} onClick={(event) => handleShare(event, document.id)}>Share</Button>
+        <Popover
+          title="Share"
+          trigger="click"
+          visible={visible}
+          onVisibleChange={() => setVisible(!visible)}
+          content={
+            <div style={{display: 'flex', maxWidth: 'calc(100vw - 40px)'}}>
+            <span style={{overflowX: 'scroll', display: 'inline-block'}}>
+              {window.location.href}/{documentName}
+            </span>
+              <Button onClick={handeCopyToClipboard}><CopyOutlined/></Button>
+            </div>
+          }
+        >
+          <Button type="link" style={{padding: '8px 0'}}
+                  onClick={(event) => handleShare(event, document.id)}>Share</Button>
+        </Popover>
       </Card>
     </Col>
   ));

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import {useParams} from 'react-router-dom';
 import {connect} from 'react-redux';
 import documentsActions from '../../utils/documents/documentsActions';
@@ -9,18 +9,21 @@ const {Meta} = Card;
 
 const Document = (props) => {
   const {id} = useParams();
+  const [document, setDocument] = useState('');
 
   const getShareDocument = props.getShareDocument;
-  useEffect(() => getShareDocument(id), [getShareDocument, id]);
+  useEffect(() => {
+    getShareDocument(id).then(result => setDocument(result))
+  }, [getShareDocument, id]);
 
   return (
     <Card
       actions={[
-        <DownloadOutlined onClick={() => props.download({index: document.id, name: document.title})}/>,
+        <DownloadOutlined onClick={() => props.downloadShareDocument(id)}/>,
       ]}
     >
       <Meta
-        title={props.document}
+        title={document}
       />
     </Card>
   );
@@ -33,7 +36,7 @@ export default connect(
     return {document};
   },
   (dispatch) => ({
-    download: data => documentsActions.download(data),
-    getShareDocument: (id) => documentsActions.getShareDocument(id).then(result => dispatch(result)).catch(result => dispatch(result))
+    downloadShareDocument: hash => documentsActions.downloadShareDocument(hash),
+    getShareDocument: (id) => documentsActions.getShareDocument(id).then(result => result).catch(result => dispatch(result))
   })
 )(Document);

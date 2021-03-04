@@ -2,12 +2,10 @@ const ADD_FILES = 'ADD_FILES';
 const SET_FILES = 'SET_FILES';
 const REMOVE_FILE = 'REMOVE_FILE';
 const CLEAR_FILES = 'CLEAR_FILES';
-const SET_FILE = 'SET_FILE';
 const NULL_FILE = 'NULL_FILE';
 
 const initialState = {
   isDocument: true,
-  document: null,
   documents: [],
   size: null
 };
@@ -22,8 +20,6 @@ const documentsReducer = (state = initialState, action) => {
       return {...state, documents: [...state.documents.filter(item => item.id !== action.index)], size: action.size};
     case CLEAR_FILES:
       return state;
-    case SET_FILE:
-      return {...state, document: action.document};
     case NULL_FILE:
       return {...state, isDocument: false};
     default:

@@ -79,22 +79,26 @@ export const share = (id) => {
         }
       });
 
-    console.log(response);
-
-    return response.status === 200 ? {} : false;
+    return response.status === 200 ? response.data : false;
   })(id);
 };
 
 export const getShareDocument = (id) => {
   return (async (id) => {
     const response = await axios
-      .get(`http://127.0.0.1:8000/api/documents/share/${id}`, {
-        headers: {
-          Authorization: getToken(),
-          'user-id': store.getState().authReducer.id
-        }
-      });
+      .get(`http://127.0.0.1:8000/api/documents/share/${id}`);
 
     return response.status === 200 ? {document: response.data} : false;
   })(id);
+};
+
+export const downloadShareDocument = (hash) => {
+  return (async (hash) => {
+    const response = await axios
+      .get(`http://127.0.0.1:8000/api/documents/share/download/${hash}`, {
+        responseType: 'blob'
+      });
+
+    return response.status === 200 ? response : false;
+  })(hash);
 };

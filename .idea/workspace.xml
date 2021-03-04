@@ -4,12 +4,11 @@
     <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.8.0">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/store/reducers/documentsReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/documentsReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/reducers.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/reducers.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/documents/documentsActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/documents/documentsActions.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/utils/documents/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/documents/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/Document/Document.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Document/Document.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Documents/Documents.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Documents/Documents.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,14 +185,7 @@
       <workItem from="1614591383267" duration="7255000" />
       <workItem from="1614770685433" duration="7763000" />
       <workItem from="1614799205501" duration="4097000" />
-      <workItem from="1614860874290" duration="2225000" />
-    </task>
-    <task id="LOCAL-00030" summary="commit">
-      <created>1609348442948</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1609348442948</updated>
+      <workItem from="1614860874290" duration="5768000" />
     </task>
     <task id="LOCAL-00031" summary="commit">
       <created>1609351475028</created>
@@ -531,7 +523,14 @@
       <option name="project" value="LOCAL" />
       <updated>1614802734003</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="0.8.0">
+      <created>1614863198712</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1614863198713</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
