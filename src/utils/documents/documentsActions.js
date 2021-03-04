@@ -17,7 +17,9 @@ const documentsActions = {
   remove: index => remove(index).then(({index, size}) => ({type: 'REMOVE_FILE', index, size})),
   clear: () => clear().then(() => ({type: 'CLEAR_FILES'})),
   share: (id) => share(id),
-  getShareDocument: (id) => getShareDocument(id)
+  getShareDocument: (id) => {
+    return getShareDocument(id).then(({document}) => ({type: 'SET_FILE', document})).catch(() => ({type: 'NULL_FILE'}))
+  }
 };
 
 export default documentsActions;

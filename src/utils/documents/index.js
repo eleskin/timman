@@ -95,8 +95,6 @@ export const getShareDocument = (id) => {
         }
       });
 
-    console.log(response);
-
-    return response.status === 200 ? {} : false;
+    return response.status === 200 ? {document: response.data} : false;
   })(id);
 };

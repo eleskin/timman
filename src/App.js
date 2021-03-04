@@ -45,7 +45,7 @@ const App = props => {
                 <PrivateRoute auth={auth} exact path="/notes/:id" component={Notes}/>
 
                 <PrivateRoute auth={auth} exact path="/documents" component={Documents}/>
-                <Route auth={auth} exact path="/documents/:id" component={Document}/>
+                {props.documents.isDocument && <Route auth={auth} exact path="/documents/:id" component={Document}/>}
 
                 <PrivateRoute auth={auth} exact path="/settings" component={Settings}/>
 
@@ -61,4 +61,7 @@ const App = props => {
   );
 };
 
-export default connect(({authReducer}) => ({auth: authReducer.auth}), null)(App);
+export default connect(
+  ({authReducer, documentsReducer}) => ({auth: authReducer.auth, documents: documentsReducer}),
+  null
+)(App);
