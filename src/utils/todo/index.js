@@ -42,8 +42,6 @@ export const update = (id, value, valueSuccess) => {
       }
     });
 
-    console.log(response);
-
     return response.status === 200 ? {task: response.data} : false;
   })(id, value, valueSuccess);
 };
