@@ -1,12 +1,12 @@
 https://timman.aleksandreleskin.ru/
 
-Requires [API](https://github.com/aleksandreleskin/timman-api) to work
-
 # Timman - Open Source
 
 ## The Repository
 
 This repository is where I develop the Timman product.
+
+Requires [API](https://github.com/aleksandreleskin/timman-api) to work.
 
 This source code is available to everyone under the standard [MIT license](https://github.com/git/git-scm.com/blob/master/MIT-LICENSE.txt).
 
