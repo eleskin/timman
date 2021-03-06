@@ -1,4 +1,5 @@
 https://timman.aleksandreleskin.ru/
+Requires [API](https://github.com/aleksandreleskin/timman-api) to work
 
 # Timman - Open Source
 
