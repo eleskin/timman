@@ -34,7 +34,7 @@ const App = props => {
           {isMobile && <Sidebar auth={auth}/>}
           <Layout className="site-layout" style={{overflowY: 'scroll'}}>
             <Header/>
-            <Content style={{margin: '0.5rem', paddingBottom: '50px'}}>
+            <Content style={{margin: '0.5rem', paddingBottom: '50px', overflowY: 'scroll'}}>
               <Switch>
                 <PublicRoute auth={auth} exact path="/login" component={Login}/>
                 <PublicRoute auth={auth} exact path="/register" component={Register}/>
