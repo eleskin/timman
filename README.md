@@ -12,7 +12,10 @@ This source code is available to everyone under the standard [MIT license](https
 
 ## Timman
 ![image](https://user-images.githubusercontent.com/55847871/110211868-9c319500-7ea9-11eb-94f1-d25e022f340f.png)
+
 Timman combines cloud storage, note-taking and to-do list features.
+
+Frontend is developed in React.
 
 ## License
 Copyright (c) Aleksandr Eleskin. All rights reserved.
