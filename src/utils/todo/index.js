@@ -60,7 +60,7 @@ export const remove = id => {
 
 export const changeOrder = (taskA, taskB) => {
   return (async (taskA, taskB) => {
-    const response = await axios.put('http://127.0.0.1:8000/api/todo/', {
+    const response = await axios.put('http://127.0.0.1:8000/api/todo', {
       taskA,
       taskB
     }, {
