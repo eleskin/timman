@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.8.1">
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="remove title in notes">
       <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/notes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/utils/notes/notesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/notesActions.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Notes/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/Notes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesEditor/NotesEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesEditor/NotesEditor.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/auth/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/auth/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Home/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Home/Home.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,7 +68,7 @@
       <recent name="C:\Users\elesk\OneDrive\Desktop\Work\timman\src\components\Sidebar" />
     </key>
   </component>
-  <component name="RunManager" selected="npm.npm start">
+  <component name="RunManager" selected="npm.build">
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
       <method v="2" />
     </configuration>
@@ -193,14 +189,8 @@
       <workItem from="1615042873828" duration="2000" />
       <workItem from="1622570698854" duration="60000" />
       <workItem from="1622652169759" duration="27000" />
-      <workItem from="1622652349416" duration="1256000" />
-    </task>
-    <task id="LOCAL-00035" summary="0.4.1">
-      <created>1609527538322</created>
-      <option name="number" value="00035" />
-      <option name="presentableId" value="LOCAL-00035" />
-      <option name="project" value="LOCAL" />
-      <updated>1609527538322</updated>
+      <workItem from="1622652349416" duration="2849000" />
+      <workItem from="1622656226402" duration="161000" />
     </task>
     <task id="LOCAL-00036" summary="0.4.1">
       <created>1609530218085</created>
@@ -538,7 +528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1615034748069</updated>
     </task>
-    <option name="localTasksCounter" value="84" />
+    <task id="LOCAL-00084" summary="remove title in notes">
+      <created>1622653848548</created>
+      <option name="number" value="00084" />
+      <option name="presentableId" value="LOCAL-00084" />
+      <option name="project" value="LOCAL" />
+      <updated>1622653848549</updated>
+    </task>
+    <option name="localTasksCounter" value="85" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,6 +580,7 @@
     <MESSAGE value="0.7.8" />
     <MESSAGE value="0.8.0" />
     <MESSAGE value="0.8.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="0.8.1" />
+    <MESSAGE value="remove title in notes" />
+    <option name="LAST_COMMIT_MESSAGE" value="remove title in notes" />
   </component>
 </project>

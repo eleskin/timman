@@ -41,7 +41,15 @@ const Home = props => {
 
   const notesList = props.notes.slice(0, 3).map((note, index) => (
     <Card
-      title={note.title || 'Untitled'}
+      title={
+        note.value.replace(/(<(\/?[^>]+)>)/g, '')
+          ? (
+            note.value.replace(/(<(\/?[^>]+)>)/g, '').length < 8
+              ? `${note.value.replace(/(<(\/?[^>]+)>)/g, '').slice(0, 8)}`
+              : `${note.value.replace(/(<(\/?[^>]+)>)/g, '').slice(0, 8)}...`
+          )
+          : 'Untitled'
+      }
       extra={
         <Link to={`/notes/${note.id}`}>
           <Button
