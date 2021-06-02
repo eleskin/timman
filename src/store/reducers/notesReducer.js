@@ -19,10 +19,9 @@ const documentsReducer = (state = initialState, action) => {
       return {...state, notes: [...state.notes.filter(item => item.id !== action.id)]};
     case SET_NOTE:
       if (action.id) {
-        state.notes.filter(note => note.id === action.id)[0].title = action.title;
         state.notes.filter(note => note.id === action.id)[0].value = action.value;
       }
-      return {...state, noteValue: action.value, noteTitle: action.title};
+      return {...state, noteValue: action.value};
     case CLEAR_NOTES:
       return state;
     default:

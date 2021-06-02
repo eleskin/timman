@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.8.1" />
+    <list default="true" id="12ecc894-10db-4986-9bcd-bf2cdf10233c" name="Default Changelist" comment="0.8.1">
+      <change beforePath="$PROJECT_DIR$/.eslintcache" beforeDir="false" afterPath="$PROJECT_DIR$/.eslintcache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/reducers/notesReducer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/notes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/utils/notes/notesActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/utils/notes/notesActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Notes/Notes.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/Notes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesEditor/NotesEditor.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesEditor/NotesEditor.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/Notes/components/NotesList/NotesList.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +56,7 @@
     <property name="nodejs_interpreter_path" value="node" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2020.2.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.1.1\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -182,6 +191,9 @@
       <workItem from="1615033706857" duration="371000" />
       <workItem from="1615034714799" duration="45000" />
       <workItem from="1615042873828" duration="2000" />
+      <workItem from="1622570698854" duration="60000" />
+      <workItem from="1622652169759" duration="27000" />
+      <workItem from="1622652349416" duration="1256000" />
     </task>
     <task id="LOCAL-00035" summary="0.4.1">
       <created>1609527538322</created>

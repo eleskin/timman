@@ -18,9 +18,9 @@ const NotesList = props => {
   const handleSelect = async (event, id) => {
     await props.getNoteValue(id);
     props.setNoteValue(store.getState().notesReducer.noteValue);
-    props.setNoteTitle(store.getState().notesReducer.noteTitle);
     props.setVisibleInput(true);
   };
+
 
   const parentRef = createRef();
 
@@ -33,13 +33,23 @@ const NotesList = props => {
         to={`/notes/${note.id}`}
         onClick={event => handleSelect(event, note.id)}
       >
-        <span>{note.title ? note.title : 'Untitled'}</span>
+        <span>
+          {
+            note.value.replace(/(<(\/?[^>]+)>)/g, '')
+              ? (
+                note.value.replace(/(<(\/?[^>]+)>)/g, '').length < 8
+                  ? `${note.value.replace(/(<(\/?[^>]+)>)/g, '').slice(0, 8)}`
+                  : `${note.value.replace(/(<(\/?[^>]+)>)/g, '').slice(0, 8)}...`
+              )
+              : 'Untitled'
+          }
+        </span>
       </Link>
       <Button
         onClick={event => {
           event.preventDefault();
           props.setVisibleInput(false);
-          history.push("/notes");
+          history.push('/notes');
           props.remove(note.id);
         }}>
         <i><DeleteOutlined style={{margin: '0'}}/></i>

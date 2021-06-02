@@ -6,7 +6,6 @@ export const create = () => {
   return (async () => {
     const response = await axios.post('http://127.0.0.1:8000/api/notes', {
       user_id: store.getState().authReducer.id,
-      title: '',
       value: ''
     }, {
       headers: {
@@ -40,19 +39,17 @@ export const getNoteValue = id => {
     });
 
     return response.status === 200 ? {
-      title: response.data.title,
       value: response.data.value,
       id: response.data.id
     } : false;
   })(id);
 };
 
-export const save = (id, value, title) => {
-  return (async (id, value, title) => {
+export const save = (id, value) => {
+  return (async (id, value) => {
     const response = await axios.put(`http://127.0.0.1:8000/api/notes`, {
       id,
       value,
-      title
     }, {
       headers: {
         Authorization: getToken()
@@ -60,11 +57,10 @@ export const save = (id, value, title) => {
     });
 
     return response.status === 201 ? {
-      title: response.data.title,
       value: response.data.value,
       id: response.data.id
     } : false;
-  })(id, value, title);
+  })(id, value);
 };
 
 export const remove = id => {

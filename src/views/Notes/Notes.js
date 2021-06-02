@@ -11,7 +11,6 @@ import NotesEditor from './components/NotesEditor/NotesEditor';
 const Notes = props => {
   const [visibleInput, setVisibleInput] = useState(false);
   const [noteValue, setNoteValue] = useState('');
-  const [noteTitle, setNoteTitle] = useState('');
   const [timerID, setTimerID] = useState(Number());
   const [menuEnable, setMenuEnable] = useState(true);
 
@@ -22,7 +21,6 @@ const Notes = props => {
     setMenuEnable(false);
 
     clearTimeout(timerID);
-    setNoteTitle(title);
     setNoteValue(value);
 
     const timer = setTimeout(async () => {
@@ -41,7 +39,6 @@ const Notes = props => {
 
       await props.getNoteValue(id);
       setNoteValue(store.getState().notesReducer.noteValue);
-      setNoteTitle(store.getState().notesReducer.noteTitle);
       props.notes.filter(note => note.id === id).length !== 0 && setVisibleInput(true);
     })();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -53,7 +50,6 @@ const Notes = props => {
         <NotesList
           notes={props.notes}
           getNoteValue={props.getNoteValue}
-          setNoteTitle={setNoteTitle}
           setNoteValue={setNoteValue}
           menuEnable={menuEnable}
           setVisibleInput={setVisibleInput}
@@ -62,7 +58,6 @@ const Notes = props => {
         <NotesEditor
           visibleInput={visibleInput}
           noteValue={noteValue}
-          noteTitle={noteTitle}
           handleChange={handleChange}
           id={id}
         />

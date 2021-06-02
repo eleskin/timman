@@ -1,28 +1,21 @@
 import React, {useEffect, useState} from 'react';
 import styles from '../../Notes.module.css';
-import {Col, Input} from 'antd';
+import {Col} from 'antd';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
 const NotesEditor = props => {
-  const [title, setTitle] = useState('');
   const [value, setValue] = useState('');
-
-  const onSetTitle = (title, id) => {
-    setTitle(title);
-    props.handleChange(title, props.noteValue, id);
-  };
 
   const onSetValue = (value, id) => {
     setValue(value);
-    props.handleChange(props.noteTitle, value, id);
+    props.handleChange('', value, id);
   };
 
   useEffect(() => {
-    setTitle(props.noteTitle);
     setValue(props.noteValue);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [props.noteTitle, props.noteValue]);
+  }, [props.noteValue]);
 
   return (
     <Col
@@ -39,11 +32,6 @@ const NotesEditor = props => {
         props.visibleInput
         &&
         <>
-          <Input
-            placeholder="Enter title"
-            value={title}
-            onChange={event => onSetTitle(event.target.value, props.id)}
-          />
           <ReactQuill
             theme="snow"
             value={value}
